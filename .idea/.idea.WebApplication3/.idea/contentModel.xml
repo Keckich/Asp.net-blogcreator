@@ -14,6 +14,7 @@
             </e>
           </e>
         </e>
+        <e p="CategoryInitial.cs" t="Include" />
         <e p="Controllers" t="Include">
           <e p="HomeController.cs" t="Include" />
           <e p="PostController.cs" t="Include" />
@@ -43,7 +44,9 @@
         <e p="Startup.cs" t="Include" />
         <e p="Views" t="Include">
           <e p="Home" t="Include">
+            <e p="Details.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
+            <e p="PostPart.cshtml" t="Include" />
             <e p="Privacy.cshtml" t="Include" />
           </e>
           <e p="Post" t="Include">

@@ -201,3 +201,8 @@
 /home/nikita/RiderProjects/WebApplication3/WebApplication3/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll
 /home/nikita/RiderProjects/WebApplication3/WebApplication3/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll
 /home/nikita/RiderProjects/WebApplication3/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Post/Create.cshtml.g.cs
+/home/nikita/RiderProjects/WebApplication3/WebApplication3/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.JsonPatch.dll
+/home/nikita/RiderProjects/WebApplication3/WebApplication3/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+/home/nikita/RiderProjects/WebApplication3/WebApplication3/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll
+/home/nikita/RiderProjects/WebApplication3/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Home/PostPart.cshtml.g.cs
+/home/nikita/RiderProjects/WebApplication3/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Home/Details.cshtml.g.cs

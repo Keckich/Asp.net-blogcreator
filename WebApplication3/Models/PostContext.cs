@@ -17,7 +17,7 @@ namespace WebApplication3.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Post>().HasMany(p => p.Tags).WithOne(t => t.Post).HasForeignKey(t => t.Id);
+            //modelBuilder.Entity<Post>().HasMany(p => p.Tags).WithOne(t => t.Post).HasForeignKey(t => t.Id);
             modelBuilder.Entity<Post>().HasOne(p => p.Category).WithMany(c => c.Posts).HasForeignKey(p => p.CategoryId);
             //modelBuilder.Entity<Tag>().HasMany(t => t.Posts).WithOne(p => p.Tag).HasForeignKey(p => p.Id);
         }

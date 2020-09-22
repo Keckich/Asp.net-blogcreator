@@ -1,10 +1,30 @@
+@model IEnumerable<WebApplication3.Models.Category>
 @{
     ViewData["Title"] = "Create post";
 }
 <h1>@ViewData["Title"]</h1>
 
 <form method="post">
-    <label>Title:</label><br />
-    <input type="text" name="title" /><br />
-    <input type="submit" value="Submit">
+    <fieldset>
+        <p><label>Title:</label>
+            <input type="text" name="Title"  />
+        </p>
+        <p><label>Category:</label>
+            <select name="CategoryId">
+                @foreach (var category in Model)
+                {
+                    <option value="@category.Id">@category.Title</option>
+                }
+            </select>
+        </p>
+        
+        <p><label>Short description:</label>
+            <input type="text" name="ShortDescription"  />
+        </p>
+        <p><label>Description:</label>
+            <input type="text" name="Description"  />
+        </p>
+        <input type="submit" value="Submit">       
+    </fieldset>
+
 </form>
