@@ -25,9 +25,10 @@ namespace WebApplication3.Controllers
             return View(db.Posts.ToList());
         }
 
-        public IActionResult Details()
+        public IActionResult Details(int id)
         {
-            return View(db.Posts.ToList());
+            var post = db.Posts.Find(id);
+            return View(post);
         }
         public IActionResult Privacy()
         {

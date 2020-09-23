@@ -1,10 +1,7 @@
-@model IEnumerable<WebApplication3.Models.Post>
+@model WebApplication3.Models.Post
 
 <div class="col-md-8">
-    @*@foreach (var post in Model)
-    {
-        @Html.Partial("PostPart", post)
-        <hr/>
-        <p>@post.Description</p>        
-    }*@
+    @Html.Partial("PostPartial", Model)
+    <hr/>
+    <p>@Model.Description</p>
 </div>    

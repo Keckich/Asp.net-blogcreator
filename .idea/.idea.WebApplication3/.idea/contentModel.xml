@@ -42,18 +42,26 @@
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
+        <e p="ViewComponents" t="Include">
+          <e p="LastPostsViewComponent.cs" t="Include" />
+        </e>
         <e p="Views" t="Include">
           <e p="Home" t="Include">
             <e p="Details.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
-            <e p="PostPart.cshtml" t="Include" />
             <e p="Privacy.cshtml" t="Include" />
           </e>
           <e p="Post" t="Include">
             <e p="Create.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
+            <e p="Components" t="Include">
+              <e p="LastPosts" t="Include">
+                <e p="Default.cshtml" t="Include" />
+              </e>
+            </e>
             <e p="Error.cshtml" t="Include" />
+            <e p="PostPartial.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
             <e p="_LoginPartial.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
@@ -77,6 +85,7 @@
         <e p="wwwroot" t="Include">
           <e p="css" t="Include">
             <e p="site.css" t="Include" />
+            <e p="test.css" t="Include" />
           </e>
           <e p="favicon.ico" t="Include" />
           <e p="js" t="Include">

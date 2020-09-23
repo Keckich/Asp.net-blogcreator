@@ -22,48 +22,49 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c5ef033-52c8-48e1-b10b-a007160b61d2" name="Default Changelist" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="6c5ef033-52c8-48e1-b10b-a007160b61d2" name="Default Changelist" comment="Home page and categories">
+      <change afterPath="$PROJECT_DIR$/WebApplication3/ViewComponents/LastPostsViewComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/Views/Shared/Components/LastPosts/Default.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/Views/Shared/PostPartial.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Components/LastPosts/Default.cshtml.g.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Shared/PostPartial.cshtml.g.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/css/test.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/dataSources/57b15145-a715-4269-be0a-f393aed8d1ca.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/Controllers/PostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Controllers/PostController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/Models/PostContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Models/PostContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/Models/PostModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Models/PostModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/Post.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/Views/Home/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Views/Home/Details.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/Views/Post/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Views/Post/Create.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/WebApplication3.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/WebApplication3.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/Views/Home/PostPart.cshtml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Home/Details.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Home/Details.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Post/Create.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Post/Create.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Home/PostPart.cshtml.g.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.RazorCoreGenerate.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.TagHelpers.output.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.TagHelpers.output.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/WebApplication3.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/WebApplication3.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,25 +91,37 @@
         <option value="$PROJECT_DIR$/WebApplication3/Models/PostModel.cs" />
         <option value="$PROJECT_DIR$/WebApplication3/Controllers/PostController.cs" />
         <option value="$PROJECT_DIR$/WebApplication3/Views/Post/Create.cshtml" />
-        <option value="$PROJECT_DIR$/WebApplication3/Views/Home/Index.cshtml" />
-        <option value="$PROJECT_DIR$/WebApplication3/Views/Home/PostPart.cshtml" />
         <option value="$PROJECT_DIR$/WebApplication3/Controllers/HomeController.cs" />
+        <option value="$PROJECT_DIR$/WebApplication3/wwwroot/css/test.css" />
+        <option value="$PROJECT_DIR$/WebApplication3/Views/Home/PostPart.cshtml" />
+        <option value="$PROJECT_DIR$/WebApplication3/Views/Post/InvokeAsync.cshtml" />
+        <option value="$PROJECT_DIR$/WebApplication3/Pages/Components/LastPosts/Default.cshtml" />
+        <option value="$PROJECT_DIR$/WebApplication3/Views/Shared/PostPart.cshtml" />
         <option value="$PROJECT_DIR$/WebApplication3/Views/Home/Details.cshtml" />
+        <option value="$PROJECT_DIR$/WebApplication3/Views/Shared/Components/LastPosts/Default.cshtml" />
+        <option value="$PROJECT_DIR$/WebApplication3/ViewComponents/LastPostsViewComponent.cs" />
+        <option value="$PROJECT_DIR$/WebApplication3/wwwroot/css/site.css" />
+        <option value="$PROJECT_DIR$/WebApplication3/Views/Shared/PostPartial.cshtml" />
+        <option value="$PROJECT_DIR$/WebApplication3/Views/Home/Index.cshtml" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1herZMfZGxZQia77XeAV2b3fx2y" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql&#10;sqlite" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -157,7 +170,8 @@
       <workItem from="1600461956538" duration="9874000" />
       <workItem from="1600542998628" duration="10346000" />
       <workItem from="1600637688582" duration="13753000" />
-      <workItem from="1600718359351" duration="20090000" />
+      <workItem from="1600718359351" duration="20541000" />
+      <workItem from="1600802085751" duration="19382000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1600644195255</created>
@@ -166,7 +180,21 @@
       <option name="project" value="LOCAL" />
       <updated>1600644195255</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Home page update">
+      <created>1600741671829</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1600741671830</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Home page and categories">
+      <created>1600741918553</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1600741918553</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,29 +212,33 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Home page update" />
+    <MESSAGE value="Home page and categories" />
+    <option name="LAST_COMMIT_MESSAGE" value="Home page and categories" />
   </component>
   <component name="WindowStateProjectService">
     <state x="409" y="222" width="604" height="348" key="#Notifications" timestamp="1600643516562">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="409" y="222" width="604" height="348" key="#Notifications/67.27.1299.741@67.27.1299.741" timestamp="1600643516562" />
-    <state x="311" y="58" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600732612766">
+    <state x="311" y="58" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600810403037">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="311" y="58" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1299.741@67.27.1299.741" timestamp="1600732612766" />
+    <state x="311" y="58" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1299.741@67.27.1299.741" timestamp="1600810403037" />
     <state x="403" y="198" width="616" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600649083531">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="403" y="198" width="616" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1299.741@67.27.1299.741" timestamp="1600649083531" />
-    <state x="494" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1600732609365">
+    <state x="494" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1600810396688">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="494" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1600732609365" />
+    <state x="494" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1600810396688" />
     <state x="546" y="296" key="Github.ShareDialog" timestamp="1600643760430">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
@@ -215,22 +247,22 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="392" y="84" width="639" height="625" key="Github.UntrackedFilesDialog/67.27.1299.741@67.27.1299.741" timestamp="1600643875397" />
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1600741149593">
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1600825436371">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1600741149593" />
-    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1600741149591">
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1600825436371" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1600825436370">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1600741149591" />
-    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1600741149590">
+    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1600825436370" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1600825436369">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1600741149590" />
-    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1600741149592">
+    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1600825436369" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1600825436371">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1600741149592" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1600825436371" />
     <state width="263" height="498" key="HiddenNamespacesPopup" timestamp="1600544398234">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
@@ -239,13 +271,13 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="205" y="31" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1600642647943" />
-    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1600644316219">
+    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1600741924398">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1299.741@67.27.1299.741" timestamp="1600644316219" />
-    <state x="497" y="311" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600741621133">
+    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1299.741@67.27.1299.741" timestamp="1600741924398" />
+    <state x="497" y="311" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600741811247">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="497" y="311" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1299.741@67.27.1299.741" timestamp="1600741621133" />
+    <state x="497" y="311" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1299.741@67.27.1299.741" timestamp="1600741811247" />
   </component>
 </project>

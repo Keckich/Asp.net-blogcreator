@@ -7,7 +7,7 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/WebApplication3/app.db</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="Post.db" uuid="0a2d7dc9-4a43-4b89-a332-5e70307b0a50">
+    <data-source source="LOCAL" name="post.db" uuid="6f45a3c8-6fe0-43f4-99d5-65abc6ea4c9e">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>

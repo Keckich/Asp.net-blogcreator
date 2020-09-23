@@ -4,13 +4,16 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<div class="container">
+<div id="container">
     <ul class="col-md-8">
         @foreach (var post in Model)
         {
             <li>
-                @Html.Partial("PostPart", post)
+                @Html.Partial("PostPartial", post)
             </li>
         }
     </ul>
+    <div id="aside">
+        @await Component.InvokeAsync("LastPosts", new {howMany = 2})
+    </div>    
 </div>

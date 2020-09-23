@@ -1,0 +1,14 @@
+@model IEnumerable<WebApplication3.Models.Post>
+
+<div>
+    <h4>Last articles:</h4>
+    <ul>
+        @foreach (var post in Model)
+        {
+            <li>
+                @Html.Partial("PostPartial", post)
+            </li>
+        }
+    </ul>
+</div>
+

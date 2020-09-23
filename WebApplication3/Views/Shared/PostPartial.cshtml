@@ -1,0 +1,18 @@
+@model WebApplication3.Models.Post
+
+<div id="container">
+    <div id="nav">
+        <p>@Model.Author</p>
+        <p>@Model.PostedOn.ToString("dd MMM yyyy")</p>
+    </div>
+    <div id="content">
+        <h4>
+            <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Id">
+                @Model.Title
+            </a>    
+        </h4>
+        <textarea asp-for="ShortDescription" class="form-control" rows="3">
+            <p>@Model.ShortDescription</p>
+        </textarea>
+    </div>
+</div>
