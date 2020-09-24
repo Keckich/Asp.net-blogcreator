@@ -1,6 +1,6 @@
 @model WebApplication3.Models.Post
 
-<div id="container">
+@*<div id="container">
     <div id="nav">
         <p>@Model.Author</p>
         <p>@Model.PostedOn.ToString("dd MMM yyyy")</p>
@@ -14,5 +14,26 @@
         <textarea asp-for="ShortDescription" class="form-control" rows="3">
             <p>@Model.ShortDescription</p>
         </textarea>
+    </div>
+</div>*@
+<div class="page-wrapper">
+    <div class="left-panel-wrapper">
+        <div class="left-panel">
+            <p>@Model.Author</p>
+            <p>@Model.PostedOn.ToString("dd MMM yyyy")</p>            
+        </div>
+        <hr/>
+    </div>
+    <div class="content-wrapper">
+        <div class="content">
+            <h4>
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Id">
+                    @Model.Title
+                </a>
+            </h4>
+            <textarea asp-for="ShortDescription" class="form-control" rows="3" readonly >
+                <p>@Model.ShortDescription</p>
+            </textarea>        
+        </div>
     </div>
 </div>

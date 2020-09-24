@@ -4,7 +4,7 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<div id="container">
+<div class="page-wrapper">
     <ul class="col-md-8">
         @foreach (var post in Model)
         {
@@ -13,7 +13,9 @@
             </li>
         }
     </ul>
-    <div id="aside">
-        @await Component.InvokeAsync("LastPosts", new {howMany = 2})
-    </div>    
+    <div class="right-panel-wrapper">
+        <div class="right-panel">
+            @await Component.InvokeAsync("LastPosts", new {howMany = 2})        
+        </div>
+    </div>  
 </div>

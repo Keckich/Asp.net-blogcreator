@@ -1,7 +1,15 @@
 @model WebApplication3.Models.Post
 
-<div class="col-md-8">
-    @Html.Partial("PostPartial", Model)
-    <hr/>
-    <p>@Model.Description</p>
-</div>    
+<div class="page-wrapper">
+    <ul class="col-md-8">
+        @Html.Partial("PostPartial", Model)
+        <hr/>
+        <p>@Model.Description</p>
+    </ul>
+    <div class="right-panel-wrapper">
+        <div class="right-panel">
+                @await Component.InvokeAsync("LastPosts", new {howMany = 2})        
+        </div>
+    </div>      
+      
+</div>

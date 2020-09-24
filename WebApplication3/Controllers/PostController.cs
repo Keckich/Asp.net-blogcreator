@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -20,7 +21,8 @@ namespace WebApplication3.Controllers
         [Authorize]
         public IActionResult Create()
         {
-            return View(db.Categories.ToList());
+            /*return View(db.Categories.ToList());*/
+            return View();
         }
         [HttpPost]
         public IActionResult Create(Post post)
@@ -32,7 +34,8 @@ namespace WebApplication3.Controllers
                 db.Posts.Add(post);
                 db.SaveChanges();
             }
-            return View(db.Categories.ToList());
+            /*return View(db.Categories.ToList());*/
+            return View();
         }
         
     }

@@ -22,36 +22,222 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c5ef033-52c8-48e1-b10b-a007160b61d2" name="Default Changelist" comment="Home page and categories">
-      <change afterPath="$PROJECT_DIR$/WebApplication3/ViewComponents/LastPostsViewComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApplication3/Views/Shared/Components/LastPosts/Default.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApplication3/Views/Shared/PostPartial.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Components/LastPosts/Default.cshtml.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Shared/PostPartial.cshtml.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/css/test.css" afterDir="false" />
+    <list default="true" id="6c5ef033-52c8-48e1-b10b-a007160b61d2" name="Default Changelist" comment="Home page, new Component, +css">
+      <change afterPath="$PROJECT_DIR$/WebApplication3/Models/ViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/Views/Shared/PostLastPartial.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Shared/PostLastPartial.cshtml.g.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/CHANGES.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/adapters/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/build-config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/ckeditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/contents.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/af.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/az.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/bn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/bs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/de-ch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/en-au.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/en-ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/en-gb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/eo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/es-mx.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/fo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/fr-ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/gu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/he.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/hi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/is.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/ka.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/km.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/ku.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/lt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/lv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/mk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/mn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/ms.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/no.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/oc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/pt-br.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/si.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/sl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/sq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/sr-latn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/sr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/th.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/tt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/ug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/zh-cn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/lang/zh.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/plugins/about/dialogs/about.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/plugins/about/dialogs/hidpi/logo_ckeditor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/plugins/about/dialogs/logo_ckeditor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/plugins/clipboard/dialogs/paste.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/plugins/dialog/dialogDefinition.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/plugins/dialog/styles/dialog.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/plugins/icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/plugins/icons_hidpi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/plugins/link/dialogs/anchor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/plugins/link/dialogs/link.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/plugins/link/images/anchor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/plugins/link/images/hidpi/anchor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/css/samples.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/img/github-top.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/img/header-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/img/header-separator.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/img/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/img/navigation-tip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/js/sample.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/js/sf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/ajax.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/api.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/appendto.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/assets/inlineall/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/assets/outputxhtml/outputxhtml.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/assets/posteddata.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/assets/sample.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/assets/uilanguages/languages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/datafiltering.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/dialog/assets/my_dialog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/dialog/dialog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/divreplace.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/enterkey/enterkey.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/inlineall.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/inlinebycode.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/inlinetextarea.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/jquery.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/readonly.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/replacebyclass.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/replacebycode.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/sample.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/sample.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/sample_posteddata.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/tabindex.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/toolbar/toolbar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/uicolor.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/uilanguages.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/wysiwygarea/fullpage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/old/xhtmlstyle.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/css/fontello.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/font/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/font/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/font/fontello.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/font/fontello.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/font/fontello.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/font/fontello.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/js/abstracttoolbarmodifier.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/js/fulltoolbareditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/js/toolbarmodifier.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/js/toolbartextmodifier.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/lib/codemirror/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/lib/codemirror/codemirror.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/lib/codemirror/codemirror.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/lib/codemirror/javascript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/lib/codemirror/show-hint.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/samples/toolbarconfigurator/lib/codemirror/show-hint.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/dialog.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/dialog_ie.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/dialog_ie8.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/dialog_iequirks.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/editor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/editor_gecko.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/editor_ie.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/editor_ie8.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/editor_iequirks.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/icons_hidpi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/images/arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/images/close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/images/hidpi/close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/images/hidpi/lock-open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/images/hidpi/lock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/images/hidpi/refresh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/images/lock-open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/images/lock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/images/refresh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/images/spinner.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/skins/moono-lisa/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/ckeditor/vendor/promise.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/CategoryInitial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/CategoryInitial.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/Controllers/PostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Controllers/PostController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/Post.db" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Post.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/Views/Home/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Views/Home/Details.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/Views/Home/PostPart.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/Views/Post/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Views/Post/Create.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/Views/Shared/Components/LastPosts/Default.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Views/Shared/Components/LastPosts/Default.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/Views/Shared/PostPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Views/Shared/PostPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/WebApplication3.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/WebApplication3.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/WebApplication3.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/bin/Debug/netcoreapp3.1/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Home/Details.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Home/Details.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Home/PostPart.cshtml.g.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Post/Create.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Post/Create.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Components/LastPosts/Default.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Components/LastPosts/Default.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Shared/PostPartial.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Shared/PostPartial.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.RazorCoreGenerate.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.TagHelpers.output.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.TagHelpers.output.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/Debug/netcoreapp3.1/WebApplication3.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/WebApplication3.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/WebApplication3.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication3/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication3/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication3/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,26 +269,29 @@
         <option value="$PROJECT_DIR$/WebApplication3/Models/CategoryModel.cs" />
         <option value="$PROJECT_DIR$/WebApplication3/WebApplication3.csproj" />
         <option value="$PROJECT_DIR$/WebApplication3/Startup.cs" />
-        <option value="$PROJECT_DIR$/WebApplication3/Views/Shared/_Layout.cshtml" />
         <option value="$PROJECT_DIR$/WebApplication3/Models/CategoryInit.cs" />
-        <option value="$PROJECT_DIR$/WebApplication3/CategoryInitial.cs" />
         <option value="$PROJECT_DIR$/WebApplication3/Program.cs" />
         <option value="$PROJECT_DIR$/WebApplication3/Models/PostContext.cs" />
         <option value="$PROJECT_DIR$/WebApplication3/Models/PostModel.cs" />
-        <option value="$PROJECT_DIR$/WebApplication3/Controllers/PostController.cs" />
-        <option value="$PROJECT_DIR$/WebApplication3/Views/Post/Create.cshtml" />
         <option value="$PROJECT_DIR$/WebApplication3/Controllers/HomeController.cs" />
         <option value="$PROJECT_DIR$/WebApplication3/wwwroot/css/test.css" />
         <option value="$PROJECT_DIR$/WebApplication3/Views/Home/PostPart.cshtml" />
         <option value="$PROJECT_DIR$/WebApplication3/Views/Post/InvokeAsync.cshtml" />
         <option value="$PROJECT_DIR$/WebApplication3/Pages/Components/LastPosts/Default.cshtml" />
         <option value="$PROJECT_DIR$/WebApplication3/Views/Shared/PostPart.cshtml" />
-        <option value="$PROJECT_DIR$/WebApplication3/Views/Home/Details.cshtml" />
-        <option value="$PROJECT_DIR$/WebApplication3/Views/Shared/Components/LastPosts/Default.cshtml" />
         <option value="$PROJECT_DIR$/WebApplication3/ViewComponents/LastPostsViewComponent.cs" />
-        <option value="$PROJECT_DIR$/WebApplication3/wwwroot/css/site.css" />
-        <option value="$PROJECT_DIR$/WebApplication3/Views/Shared/PostPartial.cshtml" />
+        <option value="$PROJECT_DIR$/WebApplication3/Views/Shared/Components/PostLastPartial.cshtml" />
         <option value="$PROJECT_DIR$/WebApplication3/Views/Home/Index.cshtml" />
+        <option value="$PROJECT_DIR$/WebApplication3/Views/Shared/Components/LastPosts/Default.cshtml" />
+        <option value="$PROJECT_DIR$/WebApplication3/Views/Home/Details.cshtml" />
+        <option value="$PROJECT_DIR$/WebApplication3/Views/Shared/PostLastPartial.cshtml" />
+        <option value="$PROJECT_DIR$/WebApplication3/Views/Shared/PostPartial.cshtml" />
+        <option value="$PROJECT_DIR$/WebApplication3/wwwroot/css/site.css" />
+        <option value="$PROJECT_DIR$/WebApplication3/Models/ViewModel.cs" />
+        <option value="$PROJECT_DIR$/WebApplication3/CategoryInitial.cs" />
+        <option value="$PROJECT_DIR$/WebApplication3/Controllers/PostController.cs" />
+        <option value="$PROJECT_DIR$/WebApplication3/Views/Shared/_Layout.cshtml" />
+        <option value="$PROJECT_DIR$/WebApplication3/Views/Post/Create.cshtml" />
       </list>
     </option>
   </component>
@@ -123,6 +312,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -171,7 +361,8 @@
       <workItem from="1600542998628" duration="10346000" />
       <workItem from="1600637688582" duration="13753000" />
       <workItem from="1600718359351" duration="20541000" />
-      <workItem from="1600802085751" duration="19382000" />
+      <workItem from="1600802085751" duration="20111000" />
+      <workItem from="1600892356835" duration="21870000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1600644195255</created>
@@ -194,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600741918553</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Home page, new Component, +css">
+      <created>1600825647208</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1600825647208</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +418,8 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Home page update" />
     <MESSAGE value="Home page and categories" />
-    <option name="LAST_COMMIT_MESSAGE" value="Home page and categories" />
+    <MESSAGE value="Home page, new Component, +css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Home page, new Component, +css" />
   </component>
   <component name="WindowStateProjectService">
     <state x="409" y="222" width="604" height="348" key="#Notifications" timestamp="1600643516562">
@@ -247,22 +446,22 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="392" y="84" width="639" height="625" key="Github.UntrackedFilesDialog/67.27.1299.741@67.27.1299.741" timestamp="1600643875397" />
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1600825436371">
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1600916678980">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1600825436371" />
-    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1600825436370">
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1600916678980" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1600916678979">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1600825436370" />
-    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1600825436369">
+    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1600916678979" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1600916678978">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1600825436369" />
-    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1600825436371">
+    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1600916678978" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1600916678979">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1600825436371" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1600916678979" />
     <state width="263" height="498" key="HiddenNamespacesPopup" timestamp="1600544398234">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
@@ -271,13 +470,13 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="205" y="31" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1600642647943" />
-    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1600741924398">
+    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1600825661711">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1299.741@67.27.1299.741" timestamp="1600741924398" />
-    <state x="497" y="311" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600741811247">
+    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1299.741@67.27.1299.741" timestamp="1600825661711" />
+    <state x="497" y="311" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600825537355">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="497" y="311" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1299.741@67.27.1299.741" timestamp="1600741811247" />
+    <state x="497" y="311" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1299.741@67.27.1299.741" timestamp="1600825537355" />
   </component>
 </project>

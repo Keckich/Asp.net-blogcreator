@@ -207,3 +207,4 @@
 /home/nikita/RiderProjects/WebApplication3/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Home/Details.cshtml.g.cs
 /home/nikita/RiderProjects/WebApplication3/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Components/LastPosts/Default.cshtml.g.cs
 /home/nikita/RiderProjects/WebApplication3/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Shared/PostPartial.cshtml.g.cs
+/home/nikita/RiderProjects/WebApplication3/WebApplication3/obj/Debug/netcoreapp3.1/Razor/Views/Shared/PostLastPartial.cshtml.g.cs
