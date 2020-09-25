@@ -69,20 +69,6 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
-/*#container {
-  width: 700px;
-  margin: 0 auto;
-}
-#nav {
-  width: 200px;
-  float: left;
-}
-#aside {
-  float: right;
-}
-#content {
-  margin: 0 120px;
-}*/
 .page-wrapper {
   display: flex;
   justify-content: space-between;
@@ -103,8 +89,4 @@ body {
   position: relative;
   justify-content: space-between;
   flex-direction: row;
-}
-textarea {
-  background: red;
-  resize: none;
 }

@@ -13,10 +13,10 @@ namespace WebApplication3.Models
         public string ShortDescription { get; set; }
         [Required]
         public string Description { get; set; }
-        //public bool Published { get; set; }
         public DateTime PostedOn { get; set; }
         public Category Category { get; set; }
         public int CategoryId { get; set; }
-        //public IList<Tag> Tags { get; set; }        
+        //public IList<Tag> Tags { get; set; } 
+        public List<Comment> Comments { get; set; }
     }
 }

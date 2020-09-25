@@ -4,11 +4,11 @@
     <ul class="col-md-8">
         @Html.Partial("PostPartial", Model)
         <hr/>
-        <p>@Model.Description</p>
+        <p>@Html.Raw(Model.Description)</p>
     </ul>
     <div class="right-panel-wrapper">
         <div class="right-panel">
-                @await Component.InvokeAsync("LastPosts", new {howMany = 2})        
+                @await Component.InvokeAsync("LastPosts", new {howMany = 2})
         </div>
     </div>      
       

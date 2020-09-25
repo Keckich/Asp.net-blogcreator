@@ -38,6 +38,7 @@ namespace WebApplication3
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddRazorPages();
             services.AddAuthentication()
                 .AddGoogle(options =>
@@ -69,7 +70,12 @@ namespace WebApplication3
             app.UseStaticFiles();
 
             app.UseRouting();
-            
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
             app.UseAuthentication();
             app.UseAuthorization();
 
