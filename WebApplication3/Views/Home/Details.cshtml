@@ -1,15 +1,33 @@
-@model WebApplication3.Models.Post
+@model WebApplication3.Models.CommentViewModel
 
 <div class="page-wrapper">
     <ul class="col-md-8">
-        @Html.Partial("PostPartial", Model)
+        @Html.Partial("PostPartial", Model.Post)
         <hr/>
-        <p>@Html.Raw(Model.Description)</p>
+        <p>@Html.Raw(Model.Post.Description)</p>
     </ul>
     <div class="right-panel-wrapper">
         <div class="right-panel">
-                @await Component.InvokeAsync("LastPosts", new {howMany = 2})
+            @await Component.InvokeAsync("LastPosts", new {howMany = 2})
         </div>
-    </div>      
-      
+    </div>
+</div>
+
+<h2>Comments</h2>
+<div class="col-md-4">
+    @*@Html.Partial("CommentPartial", Model.PostComment)*@
+    <div class="col-md-4">
+        <form asp-action="Details" asp-controller="Home" method="post">
+            <p><label>Commentary:</label>
+                <input type="text" name="CContent">
+                <input type="hidden" name="PostId" value="@Model.Post.Id">
+            </p>
+            <div class="form-group">
+                <input type="submit" value="Create">
+            </div>
+        </form>
+    </div>
+    <div>
+        @await Component.InvokeAsync("Post", new { id = Model.Post.Id})
+    </div>    
 </div>

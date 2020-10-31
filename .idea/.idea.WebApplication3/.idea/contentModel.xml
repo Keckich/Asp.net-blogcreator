@@ -29,21 +29,28 @@
             <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
           </e>
         </e>
+        <e p="Migrations" t="Include" />
         <e p="Models" t="Include">
           <e p="CategoryModel.cs" t="Include" />
           <e p="CategoryViewModel.cs" t="Include" />
           <e p="CommentModel.cs" t="Include" />
+          <e p="CommentViewModel.cs" t="Include" />
           <e p="ErrorViewModel.cs" t="Include" />
           <e p="PostContext.cs" t="Include" />
           <e p="PostModel.cs" t="Include" />
           <e p="TagModel.cs" t="Include" />
         </e>
         <e p="Post.db" t="Include" />
+        <e p="Post.db-shm" t="Include" />
+        <e p="Post.db-wal" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
+        <e p="TagHelpers" t="Include">
+          <e p="TimerTagHelper.cs" t="Include" />
+        </e>
         <e p="ViewComponents" t="Include">
           <e p="LastPostsViewComponent.cs" t="Include" />
           <e p="PostViewComponent.cs" t="Include" />
@@ -56,9 +63,9 @@
           </e>
           <e p="Post" t="Include">
             <e p="Create.cshtml" t="Include" />
-            <e p="Details.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
+            <e p="CommentPartial.cshtml" t="Include" />
             <e p="Components" t="Include">
               <e p="LastPosts" t="Include">
                 <e p="Default.cshtml" t="Include" />

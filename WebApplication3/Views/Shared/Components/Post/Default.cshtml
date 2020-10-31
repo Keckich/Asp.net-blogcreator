@@ -1,0 +1,11 @@
+@model Post
+
+<h4>Comment list</h4>
+@foreach (var comment in Model.Comments)
+{
+    <div class="form-group">
+        <input asp-for="@comment.CommentAuthor" class="form-control" readonly />
+        <input asp-for="@comment.PostedOn" class="form-control" readonly/>
+        <input asp-for="@comment.CContent" class="form-control" readonly/>
+    </div>
+}

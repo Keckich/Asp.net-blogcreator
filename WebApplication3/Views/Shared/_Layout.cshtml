@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using WebApplication3
+@addTagHelper *, WebApplication3
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -6,7 +9,6 @@
     <title>@ViewData["Title"] - BLOGCreator</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css"/>
-    
 </head>
 <body>
 <header>
@@ -29,6 +31,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
+                    <timer></timer>
                 </ul>
             </div>
         </div>

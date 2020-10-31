@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using WebApplication3.Models;
 
 namespace WebApplication3.Controllers
@@ -12,9 +13,11 @@ namespace WebApplication3.Controllers
     public class PostController : Controller
     {
         private PostContext db;
+        private readonly ILogger<PostController> _logger;
         UserManager<IdentityUser> _userManager;
-        public PostController(PostContext context, UserManager<IdentityUser> userManager)
+        public PostController(ILogger<PostController> logger, PostContext context, UserManager<IdentityUser> userManager)
         {
+            _logger = logger;
             db = context;
             _userManager = userManager;
         }
@@ -23,7 +26,6 @@ namespace WebApplication3.Controllers
         public IActionResult Create()
         {
             return View(db.Categories.ToList());
-            /*return View();*/
         }
         [HttpPost]
         public IActionResult Create(Post post)
@@ -35,28 +37,9 @@ namespace WebApplication3.Controllers
                 db.Posts.Add(post);
                 db.SaveChanges();
             }
+
             return View(db.Categories.ToList());
-            /*return View();*/
         }
-        /*[HttpGet("Home/Details/{Id}")]
-        public async Task<IActionResult> Details(int? PostId)
-        {
-
-            var comment = new Comment { PostId = PostId.Value};
-            return View(comment);
-        }
-        [HttpPost("Home/Details/{Id}")]
-        public async Task<IActionResult> CreateComment(int PostId, Comment comment)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Add(comment);
-                await db.SaveChangesAsync();
-
-                return View("Details", new Comment { PostId = comment.PostId });
-            }
-            return View("Details");
-        }*/
         
     }
 }

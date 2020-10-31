@@ -4,17 +4,17 @@ namespace WebApplication3.Models
 {
     public class PostContext : DbContext
     {
-       
-        public DbSet<Post> Posts { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Tag> Tags { get; set; }
-        public DbSet<Comment> Comments { get; set; }
         
         public PostContext(DbContextOptions<PostContext> options) 
             : base(options)
         {
             Database.EnsureCreated();
         }
+        
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
