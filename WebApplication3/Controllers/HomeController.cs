@@ -17,8 +17,8 @@ namespace WebApplication3.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private PostContext db;
-        UserManager<IdentityUser> _userManager;
-        public HomeController(ILogger<HomeController> logger, PostContext context, UserManager<IdentityUser> userManager)
+        UserManager<ApplicationUser> _userManager;
+        public HomeController(ILogger<HomeController> logger, PostContext context, UserManager<ApplicationUser> userManager)
         {
             _logger = logger;
             db = context;

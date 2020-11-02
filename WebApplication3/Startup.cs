@@ -35,19 +35,25 @@ namespace WebApplication3
             services.AddDbContext<PostContext>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("PostContext")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            /*            services.AddIdentity<ApplicationUser, IdentityRole>()
+                            .AddEntityFrameworkStores<ApplicationDbContext>()
+                            .AddDefaultUI()
+                            .AddDefaultTokenProviders();*/
+
             services.AddControllersWithViews();
             /*services.AddMvc(options => options.EnableEndpointRouting = false);*/
             services.AddRazorPages();
-            services.AddAuthentication()
+            /*services.AddAuthentication()
                 .AddGoogle(options =>
                 {
                     IConfigurationSection googleAuthNSection =
                         Configuration.GetSection("Authentication:Google");
                     options.ClientId = googleAuthNSection["ClientId"];
                     options.ClientSecret = googleAuthNSection["ClientSecret"];
-                });
+                });*/
 
         }
 
