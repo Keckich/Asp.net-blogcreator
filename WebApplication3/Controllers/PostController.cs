@@ -40,6 +40,6 @@ namespace WebApplication3.Controllers
 
             return View(db.Categories.ToList());
         }
-        
+       
     }
 }

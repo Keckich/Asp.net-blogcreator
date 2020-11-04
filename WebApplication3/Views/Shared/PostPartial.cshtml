@@ -1,39 +1,52 @@
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
 @model WebApplication3.Models.Post
 
-@*<div id="container">
-    <div id="nav">
-        <p>@Model.Author</p>
-        <p>@Model.PostedOn.ToString("dd MMM yyyy")</p>
-    </div>
-    <div id="content">
-        <h4>
-            <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Id">
-                @Model.Title
-            </a>    
-        </h4>
-        <textarea asp-for="ShortDescription" class="form-control" rows="3">
-            <p>@Model.ShortDescription</p>
-        </textarea>
-    </div>
-</div>*@
 <div class="page-wrapper">
     <div class="left-panel-wrapper">
         <div class="left-panel">
+            <p>
+                @if (UserManager.FindByNameAsync(Model.Author).Result.ProfilePicture != null)
+                {
+                    <img style="width:40px; height:40px; object-fit:cover; border-radius:30px" src="data:image/*;base64,@(Convert.ToBase64String(UserManager.FindByNameAsync(Model.Author).Result.ProfilePicture))">
+                }
+            </p>
             <p>@Model.Author</p>
-            <p>@Model.PostedOn.ToString("dd MMM yyyy")</p>            
+            <p>@Model.PostedOn.ToString("dd MMM yyyy")</p>
         </div>
-        <hr/>
+        <hr />
     </div>
     <div class="content-wrapper">
-        <div class="content">
-            <h4>
-                <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Id">
-                    @Model.Title
-                </a>
-            </h4>
-            <textarea asp-for="ShortDescription" class="form-control" rows="3" readonly >
-                <p>@Model.ShortDescription</p>
-            </textarea>        
+        <div class="content">                 
+                <div class="input-group">
+                    <h4>
+                        <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Id">
+                            @Model.Title
+                        </a>
+                    </h4>
+                    <div method="post" asp-action="Delete" asp-controller="Home" asp-route-id="@Model.Id" asp-route-author="@Model.Author">
+                        @if (UserManager.GetUserAsync(User).Result != null)
+                        {
+                            @if (UserManager.GetUserAsync(User).Result.UserName == Model.Author)
+                            {
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info">x</button>
+                                </span>
+                            }
+                            
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <span class="input-group-btn">
+                                <button class="btn btn-info">x</button>
+                            </span>
+                        }
+                    </div>
+                </div>
+           
+            <textarea asp-for="ShortDescription" class="form-control" rows="3" readonly>
+            <p>@Model.ShortDescription</p>
+            </textarea>
         </div>
     </div>
 </div>

@@ -77,7 +77,18 @@ namespace WebApplication3.Controllers
             }
             return View("Details");
         }
-        
+
+        [HttpPost]
+        public IActionResult Delete(int id, string author)
+        {           
+            if (ModelState.IsValid)
+            {                              
+                db.Posts.Remove(db.Posts.Find(id));
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Privacy()
         {
             return View();
