@@ -1,0 +1,97 @@
+﻿@*@model IEnumerable<WebApplication3.Models.Post>*@
+@model WebApplication3.Models.CommentViewModel
+@{
+    ViewData["Title"] = "Checking Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#postTab">Posts</a></li>
+    <li><a data-toggle="tab" href="#commentTab">Comments</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="postTab" class="tab-pane fade in active">
+        @foreach (var post in Model.Posts)
+        {
+            @if (post.Posted == false)
+            {
+                <li>
+                    @await Html.PartialAsync("_PostPartial", post)
+                </li>
+                <form method="post" asp-action="Apply" asp-controller="PostManager" asp-route-id="@post.Id">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-info">Apply</button>
+                        </span>
+                    </div>
+                </form>
+                <form method="post" asp-action="Remove" asp-controller="PostManager" asp-route-id="@post.Id">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-info">Remove</button>
+                        </span>
+                    </div>
+                </form>
+            }
+
+        }
+    </div>
+    <div id="commentTab" class="tab-pane fade in">
+        @foreach (var post in Model.Posts)
+        {
+            @foreach (var c in Model.Comments)
+            {
+                if (c.PostId == post.Id && c.CommentPosted == false)
+                {
+                    <li>
+                        @await Html.PartialAsync("_PostPartialAdmin", (post, c))
+                    </li>
+                    break;
+                }
+            }
+        }
+    </div>
+</div>
+
+@*<div class="page-wrapper">
+    <ul class="col-md-8">
+        @foreach (var post in Model.Posts)
+        {
+            @foreach (var c in Model.Comments)
+            {
+                if (c.PostId == post.Id && c.CommentPosted == false)
+                {
+                    <li>
+                        @await Html.PartialAsync("PostPartialAdmin", (post, c))
+                    </li>
+                    break;
+                }
+            }
+            @if (post.Posted == false)
+            {
+                <li>
+                    @await Html.PartialAsync("PostPartial", post)
+                </li>
+                <form method="post" asp-action="Apply" asp-controller="PostManager" asp-route-id="@post.Id">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-info">Apply</button>
+                        </span>
+                    </div>
+                </form>
+                <form method="post" asp-action="Remove" asp-controller="PostManager" asp-route-id="@post.Id">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-info">Remove</button>
+                        </span>
+                    </div>
+                </form>
+            }
+
+        }
+    </ul>
+</div>*@

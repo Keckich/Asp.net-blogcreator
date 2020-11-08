@@ -20,6 +20,13 @@ using WebApplication3;
 #line hidden
 #nullable disable
 #nullable restore
+#line 3 "C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Mvc.Localization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\Views\UserRoles\Index.cshtml"
 using WebApplication3.Models;
 
@@ -27,7 +34,7 @@ using WebApplication3.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0e09d7b0b81d6fcd732e4103fb95aa706f385874", @"/Views/UserRoles/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5e782caf84d5fecdf89e50dbd7736fa8689e9a4b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ab5fb352e176c40c0c0e1655943d056c9ca8ad9c", @"/Views/_ViewImports.cshtml")]
     public class Views_UserRoles_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<WebApplication3.Models.RoleViewModel>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-primary"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -120,7 +127,7 @@ using WebApplication3.Models;
 #line hidden
 #nullable disable
             WriteLiteral("</td>   \r\n                <td>\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0e09d7b0b81d6fcd732e4103fb95aa706f3858746238", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0e09d7b0b81d6fcd732e4103fb95aa706f3858746470", async() => {
                 WriteLiteral("Manage Roles");
             }
             );

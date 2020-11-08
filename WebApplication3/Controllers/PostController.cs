@@ -27,6 +27,7 @@ namespace WebApplication3.Controllers
         {
             return View(db.Categories.ToList());
         }
+
         [HttpPost]
         public IActionResult Create(Post post)
         {
@@ -38,7 +39,7 @@ namespace WebApplication3.Controllers
                 db.SaveChanges();
             }
 
-            return View(db.Categories.ToList());
+            return RedirectPermanent("~/Home/Index");
         }
        
     }

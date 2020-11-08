@@ -20,6 +20,7 @@ namespace WebApplication3.ViewComponents
         {
             var posts = await db.Posts
                 .OrderByDescending(a => a.PostedOn)
+                .Where(p => p.Posted != false)
                 .Take(howMany)
                 .ToListAsync();
             return View(posts);

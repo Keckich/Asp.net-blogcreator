@@ -24,6 +24,8 @@ a {
   border-color: #1861ac;
 }
 
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -89,4 +91,17 @@ body {
   position: relative;
   justify-content: space-between;
   flex-direction: row;
+}
+
+ul.nav.nav-tabs {
+    margin: 10px 0px
+}
+
+ul.nav.nav-tabs li:not(.active) a {
+    background-color: #eeeeee;
+    color: grey;
+}
+
+ul.nav.nav-tabs li.active a {
+    border-top: 3px solid #16a765;
 }

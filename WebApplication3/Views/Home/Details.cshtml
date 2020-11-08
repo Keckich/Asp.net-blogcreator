@@ -2,7 +2,7 @@
 
 <div class="page-wrapper">
     <ul class="col-md-8">
-        @Html.Partial("PostPartial", Model.Post)
+        @await Html.PartialAsync("_PostPartial", Model.Post)
         <hr/>
         <p>@Html.Raw(Model.Post.Description)</p>
     </ul>
@@ -15,10 +15,11 @@
 
 <h2>Comments</h2>
 <div class="col-md-4">
-    @*@Html.Partial("CommentPartial", Model.PostComment)*@
     <div class="col-md-4">
         <form asp-action="Details" asp-controller="Home" method="post">
-            <p><label>Commentary:</label>
+            <p>
+                <label>Commentary:                   
+                </label>
                 <input type="text" name="CContent">
                 <input type="hidden" name="PostId" value="@Model.Post.Id">
             </p>
@@ -28,6 +29,14 @@
         </form>
     </div>
     <div>
-        @await Component.InvokeAsync("Post", new { id = Model.Post.Id})
+        @foreach (var comment in Model.Comments)
+        {
+            @if (comment.CommentPosted == true && comment.PostId == Model.Post.Id)
+            {
+                <lu>
+                    @await Html.PartialAsync("_CommentPartial", comment)
+                </lu>
+            }
+        }       
     </div>    
 </div>

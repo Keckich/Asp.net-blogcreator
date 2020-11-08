@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -41,7 +43,7 @@ namespace WebApplication3.Controllers
 
             var postCategoryVm = new CategoryViewModel
             {
-                Categories = new SelectList(await categoryQuery.Distinct().ToListAsync()),
+                Categories = new SelectList(await categoryQuery.Distinct().ToListAsync()),                
                 Posts = await posts.ToListAsync()
             };
             return View(postCategoryVm);
@@ -52,9 +54,10 @@ namespace WebApplication3.Controllers
             var postCommentVm = new CommentViewModel
             {
                 Post = db.Posts.Find(id),
-                PostComment = new Comment {PostId = id}
+                //PostComment = new Comment {PostId = id}
+                Comments = db.Comments.ToList()
             };
-            _logger.LogInformation($"postId = {id}");
+            
             return View(postCommentVm);
         }
         [HttpPost]
@@ -64,14 +67,12 @@ namespace WebApplication3.Controllers
             {
                 comment.PostedOn = DateTime.Now;
                 comment.CommentAuthor = _userManager.GetUserName(this.User);
-                db.Add(comment);
-                _logger.LogInformation($"commentDescr = {comment.CContent}");
-                _logger.LogInformation($"commentPostId = {comment.PostId}");
+                db.Add(comment);               
                 db.SaveChanges();
                 var postCommentVm = new CommentViewModel
                 {
                     Post = db.Posts.Find(id),
-                    PostComment = db.Comments.Find(id)
+                    Comments = db.Comments.ToList()
                 };
                 return View("Details", postCommentVm);
             }
@@ -87,7 +88,34 @@ namespace WebApplication3.Controllers
                 db.SaveChanges();
             }
             return RedirectToAction("Index");
+            //return Json(new { html = Helper.RenderRazorViewToString(this, "PostPartial", db.Posts.ToList()) });
+            //return PartialView("_Test", db.Posts.ToList());
         }
+
+        [HttpPost]
+        public IActionResult DeleteComment(int id, int postId)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Comments.Remove(db.Comments.Find(id));
+                db.SaveChanges();
+            }
+            return RedirectPermanent($"~/Home/Details/{postId}");
+            //return Json(new { html = Helper.RenderRazorViewToString(this, nameof(Details), db.Comments.ToList()) });
+            
+        }
+
+        [HttpPost]
+        public IActionResult SetLanguage(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1)}
+            );
+            return LocalRedirect(returnUrl);
+        }
+
 
         public IActionResult Privacy()
         {

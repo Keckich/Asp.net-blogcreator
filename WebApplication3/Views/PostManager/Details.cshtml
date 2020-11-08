@@ -1,0 +1,37 @@
+﻿@model WebApplication3.Models.CommentViewModel
+
+<div class="page-wrapper">
+    <ul class="col-md-8">
+        @await Html.PartialAsync("_PostPartial", Model.Post)
+        <hr />
+        <p>@Html.Raw(Model.Post.Description)</p>
+    </ul>
+</div>
+
+<h2>Comments</h2>
+<div class="col-md-4">
+    @foreach (var comment in Model.Comments)
+    {
+        @if (comment.CommentPosted == false && comment.PostId == Model.Post.Id)
+        {
+            <lu>
+                @await Html.PartialAsync("_CommentPartial", comment)
+            </lu>
+            <form method="post" asp-action="ApplyComment" asp-controller="PostManager" asp-route-id="@comment.CommentId" asp-route-postId="@comment.PostId">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-info">Apply</button>
+                    </span>
+                </div>
+            </form>
+            <form method="post" asp-action="RemoveComment" asp-controller="PostManager" asp-route-id="@comment.CommentId" asp-route-postId="@comment.PostId">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-info">Remove</button>
+                    </span>
+                </div>
+            </form>
+        }
+    }
+</div>
+

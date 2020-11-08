@@ -16,6 +16,7 @@ namespace WebApplication3.Models
         public DateTime PostedOn { get; set; }
         public Category Category { get; set; }
         public int CategoryId { get; set; }
+        public bool Posted { get; set; }
         //public IList<Tag> Tags { get; set; } 
         public List<Comment> Comments { get; set; }
     }

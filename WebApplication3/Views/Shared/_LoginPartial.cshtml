@@ -13,6 +13,11 @@
             <li class="nav-item">
                 <a class="nav-link text-dark" asp-area="" asp-controller="RoleManager" asp-action="Index">Role Manager</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="PostManager" asp-action="Index">Post Manager</a>
+            </li>
+            
+
         }
         <li class="nav-item" style="align-self:center;">
             @if (UserManager.GetUserAsync(User).Result.ProfilePicture != null)

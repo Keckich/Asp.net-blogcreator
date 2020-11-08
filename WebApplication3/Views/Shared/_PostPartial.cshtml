@@ -20,30 +20,28 @@
         <div class="content">                 
                 <div class="input-group">
                     <h4>
-                        <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Id">
-                            @Model.Title
-                        </a>
+                                             
+                            <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Id">
+                                @Model.Title
+                            </a>                        
+                        
                     </h4>
-                    <div method="post" asp-action="Delete" asp-controller="Home" asp-route-id="@Model.Id" asp-route-author="@Model.Author">
-                        @if (UserManager.GetUserAsync(User).Result != null)
+                    <form method="post" asp-action="Delete" asp-controller="Home" asp-route-id="@Model.Id" asp-route-author="@Model.Author">
+                        @if (UserManager.GetUserAsync(User).Result != null && UserManager.GetUserAsync(User).Result.UserName == Model.Author && !User.IsInRole("Admin"))
                         {
-                            @if (UserManager.GetUserAsync(User).Result.UserName == Model.Author)
-                            {
-                                <span class="input-group-btn">
-                                    <button class="btn btn-info">x</button>
-                                </span>
-                            }
-                            
+                            <span class="input-group-btn">
+                                <button class="btn btn-info">x</button>
+                            </span>
+
                         }
-                        @if (User.IsInRole("Admin"))
+                        @if (User.IsInRole("Admin") && Model.Posted == true)
                         {
                             <span class="input-group-btn">
                                 <button class="btn btn-info">x</button>
                             </span>
                         }
-                    </div>
-                </div>
-           
+                    </form>
+                </div>           
             <textarea asp-for="ShortDescription" class="form-control" rows="3" readonly>
             <p>@Model.ShortDescription</p>
             </textarea>

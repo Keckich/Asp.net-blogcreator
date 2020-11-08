@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+@model (WebApplication3.Models.Post, WebApplication3.Models.Comment)
+
+<div class="page-wrapper">
+    <div class="left-panel-wrapper">
+        <div class="left-panel">
+            <p>
+                @if (UserManager.FindByNameAsync(Model.Item1.Author).Result.ProfilePicture != null)
+                {
+                    <img style="width:40px; height:40px; object-fit:cover; border-radius:30px" src="data:image/*;base64,@(Convert.ToBase64String(UserManager.FindByNameAsync(Model.Item1.Author).Result.ProfilePicture))">
+                }
+            </p>
+            <p>@Model.Item1.Author</p>
+            <p>@Model.Item1.PostedOn.ToString("dd MMM yyyy")</p>
+        </div>
+        <hr />
+    </div>
+    <div class="content-wrapper">
+        <div class="content">
+            <div class="input-group">
+                <h4>
+                    @if ((User.IsInRole("Admin") || User.IsInRole("Moderator")) && Model.Item2.CommentPosted == false)
+                    {
+                        <a asp-controller="PostManager" asp-action="Details" asp-route-id="@Model.Item1.Id">
+                            @Model.Item1.Title
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Item1.Id">
+                            @Model.Item1.Title
+                        </a>
+                    }
+
+                </h4>
+                <form method="post" asp-action="Delete" asp-controller="Home" asp-route-id="@Model.Item1.Id" asp-route-author="@Model.Item1.Author">
+                    @if (UserManager.GetUserAsync(User).Result != null && UserManager.GetUserAsync(User).Result.UserName == Model.Item1.Author)
+                    {
+                        <span class="input-group-btn">
+                            <button class="btn btn-info">x</button>
+                        </span>
+
+                    }
+                    @if (User.IsInRole("Admin") && Model.Item1.Posted == true)
+                    {
+                        <span class="input-group-btn">
+                            <button class="btn btn-info">x</button>
+                        </span>
+                    }
+                </form>
+            </div>
+            <textarea asp-for="Item1.ShortDescription" class="form-control" rows="3" readonly>
+            <p>@Model.Item1.ShortDescription</p>
+            </textarea>
+        </div>
+    </div>
+</div>

@@ -26,8 +26,15 @@ using WebApplication3.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Mvc.Localization;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d49f96199b5a237dbee1ae483e9ff94936d49d30", @"/Views/RoleManager/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5e782caf84d5fecdf89e50dbd7736fa8689e9a4b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ab5fb352e176c40c0c0e1655943d056c9ca8ad9c", @"/Views/_ViewImports.cshtml")]
     public class Views_RoleManager_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Microsoft.AspNetCore.Identity.IdentityRole>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("method", "post", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -69,7 +76,7 @@ using WebApplication3.Models;
 #line hidden
 #nullable disable
             WriteLiteral("<h1>Role Manager</h1>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d49f96199b5a237dbee1ae483e9ff94936d49d304892", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d49f96199b5a237dbee1ae483e9ff94936d49d305124", async() => {
                 WriteLiteral("\r\n    <div class=\"input-group\">\r\n        <input name=\"roleName\" class=\"form-control w-25\" />\r\n        <span class=\"input-group-btn\">\r\n            <button class=\"btn btn-info\">Add New Role</button>\r\n        </span>\r\n    </div>\r\n");
             }
             );
@@ -91,7 +98,7 @@ using WebApplication3.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d49f96199b5a237dbee1ae483e9ff94936d49d306974", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d49f96199b5a237dbee1ae483e9ff94936d49d307206", async() => {
                 WriteLiteral("\r\n    <div class=\"input-group\">\r\n        <input name=\"roleName\" class=\"form-control w-25\" />\r\n        <span class=\"input-group-btn\">\r\n            <button class=\"btn btn-info\">Delete Role</button>\r\n        </span>\r\n    </div>\r\n");
             }
             );

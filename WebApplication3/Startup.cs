@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebApplication3.Models;
 using Microsoft.AspNetCore.Authentication.Google;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace WebApplication3
 {
@@ -46,6 +48,23 @@ namespace WebApplication3
             services.AddControllersWithViews();
             /*services.AddMvc(options => options.EnableEndpointRouting = false);*/
             services.AddRazorPages();
+            services.AddControllersWithViews()
+                .AddDataAnnotationsLocalization()
+                .AddViewLocalization();
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new[]
+                {
+                    new CultureInfo("ru"),
+                    new CultureInfo("en")
+                };
+
+                options.DefaultRequestCulture = new RequestCulture("ru");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+
+            });
             /*services.AddAuthentication()
                 .AddGoogle(options =>
                 {
@@ -72,6 +91,7 @@ namespace WebApplication3
                 app.UseHsts();
             }
 
+            app.UseRequestLocalization();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

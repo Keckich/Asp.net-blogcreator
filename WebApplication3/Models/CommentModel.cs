@@ -8,6 +8,7 @@ namespace WebApplication3.Models
         public string CContent { get; set; }
         public Post Post { get; set; }
         public int PostId { get; set; }
+        public bool CommentPosted { get; set; }
         public string? CommentAuthor { get; set; }
         public DateTime? PostedOn { get; set; }
     }
