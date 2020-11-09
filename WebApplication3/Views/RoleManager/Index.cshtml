@@ -1,14 +1,15 @@
-﻿@model List<Microsoft.AspNetCore.Identity.IdentityRole>
-@{ 
-    ViewData["Title"] = "Role manager";
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model List<Microsoft.AspNetCore.Identity.IdentityRole>
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>Role Manager</h1>
+<h1>@Localizer["RoleManager"]</h1>
 <form method="post" asp-action="AddRole" asp-controller="RoleManager">
     <div class="input-group">
         <input name="roleName" class="form-control w-25" />
         <span class="input-group-btn">
-            <button class="btn btn-info">Add New Role</button>
+            <button class="btn btn-info">@Localizer["AddRole"]</button>
         </span>
     </div>
 </form>
@@ -16,7 +17,7 @@
     <div class="input-group">
         <input name="roleName" class="form-control w-25" />
         <span class="input-group-btn">
-            <button class="btn btn-info">Delete Role</button>
+            <button class="btn btn-info">@Localizer["DeleteRole"]</button>
         </span>
     </div>
 </form>
@@ -24,7 +25,7 @@
     <thread>
         <tr>
             <th>Id</th>
-            <th>Role</th>
+            <th>@Localizer["Role"]</th>
         </tr>
     </thread>
     <tbody>

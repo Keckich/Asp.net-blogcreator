@@ -14,4 +14,9 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_DbContextTypeFullName>WebApplication3.Models.PostContext</WebStackScaffolding_DbContextTypeFullName>
   </PropertyGroup>
+  <ItemGroup>
+    <None Update="Resources\Views\Shared\_CommentPartialAdmin.en.resx">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
 </Project>

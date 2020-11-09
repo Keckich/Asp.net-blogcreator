@@ -128,14 +128,6 @@ namespace WebApplication3.Controllers
             return LocalRedirect(returnUrl);
         }
 
-/*        [HttpGet]
-        [Route("/Identity/Account/Manage/PostView")]
-        public IActionResult PostView()
-        {
-            string author = _userManager.GetUserAsync(User).Result.UserName;
-            return View(db.Posts.Where(p => p.Author == author).ToList());
-        }
-*/
         public IActionResult Privacy()
         {
             return View();

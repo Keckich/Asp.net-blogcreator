@@ -1,31 +1,36 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @model IEnumerable<WebApplication3.Models.Category>
 @{
-    ViewData["Title"] = "Create post";
+    ViewData["Title"] = @Localizer["MainTitle"];
 }
 <h1>@ViewData["Title"]</h1>
 
 <form method="post">
     <fieldset>
-        <p><label>Category:</label>
+        <p>
+            <label>@Localizer["Category"]:</label>
             <select name="CategoryId">
                 @foreach (var category in Model)
                 {
-                   <option value="@category.Id">@category.Title</option>
+                    <option value="@category.Id">@category.Title</option>
                 }
             </select>
-        </p>        
-        <p><label>Title:</label>
-            <input type="text" name="Title" style="min-width: 1070px" />
-        </p>
-        <p><label>Short description:</label>
-            <input type="text" name="ShortDescription" style="min-width: 980px"/>
         </p>
         <p>
-            <label>Description:</label>
+            <label>@Localizer["Title"]:</label>
+            <input type="text" name="Title" style="min-width: 1070px" />
+        </p>
+        <p>
+            <label>@Localizer["ShortDescription"]:</label>
+            <input type="text" name="ShortDescription" style="min-width: 980px" />
+        </p>
+        <p>
+            <label>@Localizer["Description"]:</label>
             <textarea id="editor1" name="Description"></textarea>
             <input type="hidden" name="Posted" value="false" />
-            <input type="submit" value="Submit">
-        </p>       
+            <input type="submit" value=@Localizer["Submit"]>
+        </p>
     </fieldset>
 </form>
 

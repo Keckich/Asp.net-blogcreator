@@ -1,4 +1,6 @@
 @using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @inject UserManager<ApplicationUser> UserManager
 @model WebApplication3.Models.CommentViewModel
 
@@ -9,14 +11,14 @@
             @if (UserManager.GetUserAsync(User).Result != null && UserManager.GetUserAsync(User).Result.UserName == Model.Post.Author && !User.IsInRole("Admin"))
             {
                 <span class="input-group-btn">
-                    <button class="btn btn-danger">Delete post</button>
+                    <button class="btn btn-danger">@Localizer["Delete"]</button>
                 </span>
 
             }
             @if (User.IsInRole("Admin") && Model.Post.Posted == true)
             {
                 <span class="input-group-btn">
-                    <button class="btn btn-danger">Delete post</button>
+                    <button class="btn btn-danger">@Localizer["Delete"]</button>
                 </span>
             }
         </form>
@@ -30,14 +32,11 @@
     </div>
 </div>
 
-<h2>Comments</h2>
+<h2>@Localizer["Comments"]</h2>
 <div class="col-md-4">
     <div class="col-md-4">
         <form asp-action="Details" asp-controller="Home" method="post">
             <p>
-                <label>
-                    Commentary:
-                </label>
                 <input type="text" name="CContent">
                 <input type="hidden" name="PostId" value="@Model.Post.Id">
             </p>

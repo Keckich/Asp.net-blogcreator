@@ -13,7 +13,24 @@
     </ItemGroup>
 
     <ItemGroup>
+      <EmbeddedResource Remove="Resources\Views\PostManager\Details.de.resx" />
+      <EmbeddedResource Remove="Resources\Views\Shared\_CommentPartialAdmin.de.resx" />
+      <EmbeddedResource Remove="Resources\Views\Shared\_CommentPartialAdmin.en.resx" />
+      <EmbeddedResource Remove="Resources\Views\Shared\_CommentPartialAdmin.ru.resx" />
+    </ItemGroup>
+
+    <ItemGroup>
         <None Update="app.db" CopyToOutputDirectory="PreserveNewest" />
+        <None Include="Resources\Views\PostManager\Details.de.resx">
+          <SubType>Designer</SubType>
+        </None>
+        <None Include="Resources\Views\Shared\_CommentPartialAdmin.de.resx">
+          <SubType>Designer</SubType>
+        </None>
+        <None Include="Resources\Views\Shared\_CommentPartialAdmin.ru.resx">
+          <SubType>Designer</SubType>
+        </None>
+        <None Include="Resources\Views\Shared\_CommentPartialAdmin.en.resx" />
         <None Include="wwwroot\ckeditor\adapters\jquery.js" />
         <None Include="wwwroot\ckeditor\build-config.js" />
         <None Include="wwwroot\ckeditor\CHANGES.md" />

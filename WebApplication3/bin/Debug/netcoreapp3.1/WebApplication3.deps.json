@@ -308,6 +308,9 @@
           "WebApplication3.dll": {}
         },
         "resources": {
+          "de/WebApplication3.resources.dll": {
+            "locale": "de"
+          },
           "en/WebApplication3.resources.dll": {
             "locale": "en"
           },

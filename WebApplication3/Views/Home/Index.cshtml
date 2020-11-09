@@ -1,7 +1,9 @@
 ﻿@*@model IEnumerable<WebApplication3.Models.Post>*@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @model WebApplication3.Models.CategoryViewModel
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = @Localizer["HomePage"];
 
 }
 
@@ -11,30 +13,30 @@
 
 <div class="page-wrapper">
     <ul class="col-md-8" id="posts">
-       @* @foreach (var post in Model.Posts)
-        {
-            @if (post.Posted != false)
+        @* @foreach (var post in Model.Posts)
             {
-                 <li>
-                    @await Html.PartialAsync("_PostPartial", post)
-                 </li>
-            }
+                @if (post.Posted != false)
+                {
+                     <li>
+                        @await Html.PartialAsync("_PostPartial", post)
+                     </li>
+                }
 
-        }*@
-        @await Html.PartialAsync("~/Views/Home/PostList.cshtml", Model.Posts) 
+            }*@
+        @await Html.PartialAsync("~/Views/Home/PostList.cshtml", Model.Posts)
     </ul>
     <div class="right-panel-wrapper">
         <div class="right-panel">
             <form method="get" asp-controller="Home" asp-action="Index">
                 <p>
                     <select asp-for="PostCategory" asp-items="Model.Categories">
-                        <option value="">All</option>
+                        <option value="">@Localizer["All"]</option>
                     </select>
                     <input type="text" name="SearchString">
                     <input type="submit" value="Search">
                 </p>
             </form>
-            
+
             @await Component.InvokeAsync("LastPosts", new { howMany = 2 })
         </div>
     </div>
@@ -42,10 +44,3 @@
 
 
 
-@section Scripts 
-{
-    <script type="text/javascript">
-        var btn = document.getElementById()
-    </script>
-    
-}

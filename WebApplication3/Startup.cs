@@ -57,7 +57,8 @@ namespace WebApplication3
                 var supportedCultures = new[]
                 {
                     new CultureInfo("ru"),
-                    new CultureInfo("en")
+                    new CultureInfo("en"),
+                    new CultureInfo("de")
                 };
 
                 options.DefaultRequestCulture = new RequestCulture("ru");

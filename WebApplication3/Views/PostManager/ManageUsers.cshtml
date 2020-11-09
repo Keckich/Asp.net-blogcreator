@@ -1,15 +1,17 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @inject UserManager<ApplicationUser> UserManager
 
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Email confirmed</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Action</th>
+            <th>@Localizer["Username"]</th>
+            <th>@Localizer["Email"]</th>
+            <th>@Localizer["EmailConfirmed"]</th>
+            <th>@Localizer["FirstName"]</th>
+            <th>@Localizer["LastName"]</th>
+            <th>@Localizer["Action"]</th>
         </tr>
     </thead>
     <tbody>
@@ -24,7 +26,7 @@
                 <td>
                     <form method="post" asp-action="DeleteUser" asp-controller="PostManager" asp-route-id="@user.Id"
                           data-ajax="true" data-ajax-mode="replace" data-ajax-update="#three-panel" enctype="multipart/form-data">
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger">@Localizer["Delete"]</button>
                     </form>
                 </td>
             </tr>
