@@ -441,3 +441,8 @@ C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\PostManager\ManageComments.cshtml.g.cs
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_CommentPartialAdmin.cshtml.g.cs
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\PostManager\ManageUsers.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\Home\PostView.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\PostView.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\PostDetails.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\PostEdit.cshtml.g.cs

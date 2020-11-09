@@ -36,7 +36,8 @@ namespace WebApplication3
                         Description = "Your eating preferences"
                     }
                     );
-                context.SaveChanges();
+                context.SaveChanges();                
+                
             }
         }
         

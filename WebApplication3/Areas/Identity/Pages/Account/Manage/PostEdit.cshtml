@@ -1,0 +1,41 @@
+﻿@page
+@model WebApplication3.Areas.Identity.Pages.Account.Manage.PostEditModel
+@{
+}
+
+<form method="post">
+    <fieldset>
+        <p>
+            <label>Category:</label>
+            <select name="CategoryId">
+                @foreach (var category in Model.PostEdit.Categories)
+                {
+                    @if (category.Id == Model.PostEdit.Post.CategoryId)
+                    {
+                        <option selected="selected" value="@category.Id">@category.Title</option>
+                    }
+                    else
+                    {
+                        <option value="@category.Id">@category.Title</option>
+                    }
+
+                }
+            </select>
+        </p>
+        <p>
+            <label>Title:</label>
+            <input type="text" name="Title" value="@Model.PostEdit.Post.Title" style="min-width: 780px" />
+        </p>
+        <p>
+            <label>Short description:</label>
+            <input type="text" name="ShortDescription" value="@Model.PostEdit.Post.ShortDescription" style="min-width: 690px" />
+        </p>
+        <p>
+            <label>Description:</label>
+            <textarea id="editor1" name="Description">@Model.PostEdit.Post.Description</textarea>
+            <input type="hidden" name="Posted" value="false" />
+            <input type="submit" value="Edit">
+        </p>
+        
+    </fieldset>
+</form>

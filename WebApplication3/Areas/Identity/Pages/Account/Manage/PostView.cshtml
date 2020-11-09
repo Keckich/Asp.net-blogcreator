@@ -1,0 +1,55 @@
+﻿@page
+@model WebApplication3.Areas.Identity.Pages.Account.Manage.PostViewModel
+@inject WebApplication3.Models.PostContext context
+@{
+    ViewData["Title"] = "Your posts";
+    ViewData["ActivePage"] = ManageNavPages.UserPosts;
+}
+
+<h4>@ViewData["Title"]</h4>
+
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Posted on</th>
+            <th>Category</th>
+            <th>Posted</th>
+            <th>Action</th>            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Post.Posts)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostedOn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => context.Categories.Find(item.CategoryId).Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Posted)
+                </td>
+                <td>
+                    <form method="get" >
+                        <a class="btn btn-info" asp-page="PostDetails" asp-route-id="@item.Id">Details</a> |
+                    </form>
+                    <form method="post">
+                        <a class="btn btn-success" asp-page="PostEdit" asp-route-id="@item.Id">Edit</a> |                        
+                        <button class="btn btn-danger" asp-page-handler="delete" asp-route-id="@item.Id">Delete</button>
+                    </form>
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

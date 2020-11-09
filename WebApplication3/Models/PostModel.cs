@@ -9,6 +9,7 @@ namespace WebApplication3.Models
         public int Id { get; set; }
         public string Author { get; set; }
         [Required]
+        [MaxLength(18)]
         public string Title { get; set; }
         public string ShortDescription { get; set; }
         [Required]

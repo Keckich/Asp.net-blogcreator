@@ -1,0 +1,49 @@
+﻿@page
+@using WebApplication3.Models 
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+@model WebApplication3.Areas.Identity.Pages.Account.Manage.PostDetailsModel
+@{
+
+}
+
+<div class="page-wrapper">
+    <ul class="col-md-8">
+        @*@await Html.PartialAsync("_PostPartial", Model.PostDetails)*@
+        <div class="page-wrapper">
+            <div class="left-panel-wrapper">
+                <div class="left-panel" style="min-width: 200px">
+                    <p>
+                        @if (UserManager.FindByNameAsync(Model.PostDetails.Author).Result.ProfilePicture != null)
+                        {
+                            <img style="width:40px; height:40px; object-fit:cover; border-radius:30px" src="data:image/*;base64,@(Convert.ToBase64String(UserManager.FindByNameAsync(Model.PostDetails.Author).Result.ProfilePicture))">
+                        }
+                    </p>
+                    <p>@Model.PostDetails.Author</p>
+                    <p>@Model.PostDetails.PostedOn.ToString("dd MMM yyyy")</p>
+                </div>
+                <hr />
+            </div>
+            <div class="content-wrapper" style="padding: 30px">
+                <div class="content">
+                    <div class="input-group">
+                        <h4>
+                            <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.PostDetails.Id">
+                                @Model.PostDetails.Title
+                            </a>
+                        </h4>
+                    </div>
+                    <textarea asp-for="PostDetails.ShortDescription" class="form-control" rows="3" style="min-width: 600px" readonly>
+                    <p>@Model.PostDetails.ShortDescription</p>
+            </textarea>
+                </div>
+            </div>
+        </div>
+        <hr style="min-width: 710px"/>
+        <div style="min-width: 710px">
+            <p>@Html.Raw(Model.PostDetails.Description)</p>
+        </div>
+        
+    </ul>
+</div>
+
