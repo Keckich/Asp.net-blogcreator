@@ -20,9 +20,9 @@
         <div class="content">
             <div class="input-group">
                 <h4>
-                    @if ((User.IsInRole("Admin") || User.IsInRole("Moderator")) && Model.Item2.CommentPosted == false)
+                    @if ((User.IsInRole("Admin") || User.IsInRole("Moderator")) && (!Model.Item1.Posted || !Model.Item2.CommentPosted))
                     {
-                        <a asp-controller="PostManager" asp-action="Details" asp-route-id="@Model.Item1.Id">
+                        <a asp-controller="PostManager" asp-action="Details" asp-route-postId="@Model.Item1.Id" asp-route-id="@Model.Item2.CommentId">
                             @Model.Item1.Title
                         </a>
                     }
@@ -34,21 +34,6 @@
                     }
 
                 </h4>
-                <form method="post" asp-action="Delete" asp-controller="Home" asp-route-id="@Model.Item1.Id" asp-route-author="@Model.Item1.Author">
-                    @if (UserManager.GetUserAsync(User).Result != null && UserManager.GetUserAsync(User).Result.UserName == Model.Item1.Author)
-                    {
-                        <span class="input-group-btn">
-                            <button class="btn btn-info">x</button>
-                        </span>
-
-                    }
-                    @if (User.IsInRole("Admin") && Model.Item1.Posted == true)
-                    {
-                        <span class="input-group-btn">
-                            <button class="btn btn-info">x</button>
-                        </span>
-                    }
-                </form>
             </div>
             <textarea asp-for="Item1.ShortDescription" class="form-control" rows="3" readonly>
             <p>@Model.Item1.ShortDescription</p>

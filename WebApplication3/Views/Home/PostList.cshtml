@@ -1,0 +1,15 @@
+﻿@*@model WebApplication3.Models.CategoryViewModel*@
+@model IEnumerable<WebApplication3.Models.Post>
+
+<div class="listing" id="postList">
+    @foreach (var post in Model)
+    {
+        @if (post.Posted != false)
+        {
+            <li>
+                @await Html.PartialAsync("_PostPartial", post)
+            </li>
+        }
+
+    }
+</div>

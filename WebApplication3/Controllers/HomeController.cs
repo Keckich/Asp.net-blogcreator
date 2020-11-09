@@ -66,9 +66,11 @@ namespace WebApplication3.Controllers
             if (ModelState.IsValid)
             {
                 comment.PostedOn = DateTime.Now;
-                comment.CommentAuthor = _userManager.GetUserName(this.User);
-                db.Add(comment);               
+                comment.CommentAuthor = _userManager.GetUserName(this.User);                
+                db.Add(comment);
+                
                 db.SaveChanges();
+                
                 var postCommentVm = new CommentViewModel
                 {
                     Post = db.Posts.Find(id),
@@ -89,7 +91,7 @@ namespace WebApplication3.Controllers
             }
             return RedirectToAction("Index");
             //return Json(new { html = Helper.RenderRazorViewToString(this, "PostPartial", db.Posts.ToList()) });
-            //return PartialView("_Test", db.Posts.ToList());
+            //return PartialView("PostList");
         }
 
         [HttpPost]
@@ -100,9 +102,19 @@ namespace WebApplication3.Controllers
                 db.Comments.Remove(db.Comments.Find(id));
                 db.SaveChanges();
             }
-            return RedirectPermanent($"~/Home/Details/{postId}");
+            //return RedirectPermanent($"~/Home/Details/{postId}");
             //return Json(new { html = Helper.RenderRazorViewToString(this, nameof(Details), db.Comments.ToList()) });
-            
+            return RedirectToAction("CommentList", new { id = postId });
+        }
+
+        public PartialViewResult CommentList(int id)
+        {
+            var postCommentVm = new CommentViewModel
+            {
+                Post = db.Posts.Find(id),
+                Comments = db.Comments.ToList()
+            };
+            return PartialView(postCommentVm);
         }
 
         [HttpPost]

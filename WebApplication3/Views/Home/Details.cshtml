@@ -1,14 +1,31 @@
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
 @model WebApplication3.Models.CommentViewModel
 
 <div class="page-wrapper">
     <ul class="col-md-8">
         @await Html.PartialAsync("_PostPartial", Model.Post)
-        <hr/>
+        <form method="post" asp-action="Delete" asp-controller="Home" asp-route-id="@Model.Post.Id" asp-route-author="@Model.Post.Author">
+            @if (UserManager.GetUserAsync(User).Result != null && UserManager.GetUserAsync(User).Result.UserName == Model.Post.Author && !User.IsInRole("Admin"))
+            {
+                <span class="input-group-btn">
+                    <button class="btn btn-danger">Delete post</button>
+                </span>
+
+            }
+            @if (User.IsInRole("Admin") && Model.Post.Posted == true)
+            {
+                <span class="input-group-btn">
+                    <button class="btn btn-danger">Delete post</button>
+                </span>
+            }
+        </form>
+        <hr />
         <p>@Html.Raw(Model.Post.Description)</p>
     </ul>
     <div class="right-panel-wrapper">
         <div class="right-panel">
-            @await Component.InvokeAsync("LastPosts", new {howMany = 2})
+            @await Component.InvokeAsync("LastPosts", new { howMany = 2 })
         </div>
     </div>
 </div>
@@ -18,7 +35,8 @@
     <div class="col-md-4">
         <form asp-action="Details" asp-controller="Home" method="post">
             <p>
-                <label>Commentary:                   
+                <label>
+                    Commentary:
                 </label>
                 <input type="text" name="CContent">
                 <input type="hidden" name="PostId" value="@Model.Post.Id">
@@ -28,15 +46,7 @@
             </div>
         </form>
     </div>
-    <div>
-        @foreach (var comment in Model.Comments)
-        {
-            @if (comment.CommentPosted == true && comment.PostId == Model.Post.Id)
-            {
-                <lu>
-                    @await Html.PartialAsync("_CommentPartial", comment)
-                </lu>
-            }
-        }       
-    </div>    
+    <div class="row justify-content-center" id="comments">
+        @await Html.PartialAsync("~/Views/Home/CommentList.cshtml", Model)
+    </div>
 </div>

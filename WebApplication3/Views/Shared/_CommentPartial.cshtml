@@ -1,22 +1,50 @@
 @using Microsoft.AspNetCore.Identity
 @inject UserManager<ApplicationUser> UserManager
 @model Comment
-<div class="form-group">
+
+
+@*<div class="form-group">
     <input asp-for="@Model.CommentAuthor" class="form-control" readonly />
-    <form method="post" asp-action="DeleteComment" asp-controller="Home" asp-route-id="@Model.CommentId" asp-route-postId="@Model.PostId" onsubmit="return AjaxDeleteComment(this);">
+    <form method="post" asp-action="DeleteComment" asp-controller="Home" asp-route-id="@Model.CommentId" asp-route-postId="@Model.PostId" onsubmit="return AjaxDeleteComment(this);"
+          data-ajax="true" data-ajax-mode="replace" data-ajax-update="#@commentsId" enctype="multipart/form-data">
         <div class="input-group">
             <span class="input-group-btn">
                 @if (UserManager.GetUserAsync(User).Result != null && UserManager.GetUserAsync(User).Result.UserName == Model.CommentAuthor && !User.IsInRole("Admin"))
-                        {
-                            <button class="btn btn-danger">x</button>
-                        }
+                {
+                    <button class="btn btn-danger">x</button>
+                }
                 @if (User.IsInRole("Admin") && Model.CommentPosted == true)
-                        {
-                            <button class="btn btn-danger">x</button>
-                        }
+                {
+                    <button class="btn btn-danger">x</button>
+                }
             </span>
         </div>
     </form>
     <input asp-for="@Model.PostedOn" class="form-control" readonly />
     <input asp-for="@Model.CContent" class="form-control" readonly />
+</div>*@
+<div class="row justify-content-center">
+
+    <div class="col col-7">
+        <b>@Model.CommentAuthor</b>
+        <p>@Model.CContent</p>
+        <p>@Model.PostedOn</p>
+    </div>
+    <div class="col col-1">
+        <form method="post" asp-action="DeleteComment" asp-controller="Home" asp-route-id="@Model.CommentId" asp-route-postId="@Model.PostId"
+              data-ajax="true" data-ajax-mode="replace" data-ajax-update="#comments" enctype="multipart/form-data">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    @if (UserManager.GetUserAsync(User).Result != null && UserManager.GetUserAsync(User).Result.UserName == Model.CommentAuthor && !User.IsInRole("Admin"))
+                    {
+                        <button class="btn btn-danger">x</button>
+                    }
+                    @if (User.IsInRole("Admin") && Model.CommentPosted == true)
+                    {
+                        <button class="btn btn-danger">x</button>
+                    }
+                </span>
+            </div>
+        </form>
+    </div>
 </div>

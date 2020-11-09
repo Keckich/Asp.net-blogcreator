@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Email confirmed</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in UserManager.Users.ToList())
+        {
+            <tr>
+                <th>@user.UserName</th>
+                <th>@user.Email</th>
+                <th>@user.EmailConfirmed</th>
+                <th>@user.FirstName</th>
+                <th>@user.LastName</th>
+                <td>
+                    <form method="post" asp-action="DeleteUser" asp-controller="PostManager" asp-route-id="@user.Id"
+                          data-ajax="true" data-ajax-mode="replace" data-ajax-update="#three-panel" enctype="multipart/form-data">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

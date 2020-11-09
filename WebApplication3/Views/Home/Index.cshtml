@@ -2,12 +2,7 @@
 @model WebApplication3.Models.CategoryViewModel
 @{
     ViewData["Title"] = "Home Page";
-    AjaxOptions ajaxOptions = new AjaxOptions
-    {
-        HttpMethod = "POST",
-        InsertionMode = InsertionMode.Replace,
-        UpdateTargetId = "test"
-    };
+
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -15,38 +10,42 @@
 
 
 <div class="page-wrapper">
-        <ul class="col-md-8">
-            @foreach (var post in Model.Posts)
-                {
-                    @if (post.Posted != false)
-                    {
-                        <li>
-                            @await Html.PartialAsync("_PostPartial", post)
-                        </li>
-                    }
+    <ul class="col-md-8" id="posts">
+       @* @foreach (var post in Model.Posts)
+        {
+            @if (post.Posted != false)
+            {
+                 <li>
+                    @await Html.PartialAsync("_PostPartial", post)
+                 </li>
+            }
 
-                }
-        </ul>
-@*    <div id="test">
-        <ul class="col-md-8">
-            @await Html.PartialAsync("~/Views/Shared/_Test.cshtml", Model)
-        </ul>
-    </div>*@
+        }*@
+        @await Html.PartialAsync("~/Views/Home/PostList.cshtml", Model.Posts) 
+    </ul>
     <div class="right-panel-wrapper">
         <div class="right-panel">
-            @using (Html.BeginForm("Index", "Home"))
-            {
-                <form method="get">
-                    <p>
-                        <select asp-for="PostCategory" asp-items="Model.Categories">
-                            <option value="">All</option>
-                        </select>
-                        <input type="text" name="SearchString">
-                        <input type="submit" value="Search">
-                    </p>
-                </form>
-            }
+            <form method="get" asp-controller="Home" asp-action="Index">
+                <p>
+                    <select asp-for="PostCategory" asp-items="Model.Categories">
+                        <option value="">All</option>
+                    </select>
+                    <input type="text" name="SearchString">
+                    <input type="submit" value="Search">
+                </p>
+            </form>
+            
             @await Component.InvokeAsync("LastPosts", new { howMany = 2 })
         </div>
     </div>
 </div>
+
+
+
+@section Scripts 
+{
+    <script type="text/javascript">
+        var btn = document.getElementById()
+    </script>
+    
+}

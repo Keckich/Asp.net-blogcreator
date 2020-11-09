@@ -61,7 +61,7 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
+   /*Margin bottom by footer height */
   margin-bottom: 60px;
 }
 .footer {
@@ -69,8 +69,9 @@ body {
   bottom: 0;
   width: 100%;
   white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+  line-height: 60px;  Vertically center the text there 
 }
+
 .page-wrapper {
   display: flex;
   justify-content: space-between;
@@ -93,7 +94,7 @@ body {
   flex-direction: row;
 }
 
-ul.nav.nav-tabs {
+/*ul.nav.nav-tabs {
     margin: 10px 0px
 }
 
@@ -104,4 +105,83 @@ ul.nav.nav-tabs li:not(.active) a {
 
 ul.nav.nav-tabs li.active a {
     border-top: 3px solid #16a765;
+}*/
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,700&display=swap');
+
+body {
+    background: #fff;
+    font-family: 'Arimo', sans-serif;
+}
+
+h2 {
+    color: #000;
+    text-align: center;
+    font-size: 2em;
+}
+
+.warpper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 0px 2px;
+    background: #000;
+    display: inline-block;
+    color: #fff;
+    border-radius: 3px 3px 0px 0px;
+    box-shadow: 0 0.5rem 0.8rem #00000080;
+}
+
+.panels {
+    background: #fffffff6;
+   /* box-shadow: 0 2rem 2rem #00000080;*/
+    min-height: 200px;
+    height: 50%;
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.panel {
+    display: none;
+    animation: fadein .8s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.panel-title {
+    font-size: 1.5em;
+    font-weight: bold
+}
+
+.radio {
+    display: none;
+}
+
+#one:checked ~ .panels #one-panel,
+#two:checked ~ .panels #two-panel,
+#three:checked ~ .panels #three-panel {
+    display: block
+}
+
+#one:checked ~ .tabs #one-tab,
+#two:checked ~ .tabs #two-tab,
+#three:checked ~ .tabs #three-tab {
+    background: #fffffff6;
+    color: #000;
+    border-top: 3px solid #000;
 }

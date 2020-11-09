@@ -422,7 +422,6 @@ C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PostLastPartial.cshtml.g.cs
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PostPartial.cshtml.g.cs
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PostPartialAdmin.cshtml.g.cs
-C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Test.cshtml.g.cs
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\bin\Debug\netcoreapp3.1\AspNetCore.Unobtrusive.Ajax.dll
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\bin\Debug\netcoreapp3.1\libman.json
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\bin\Debug\netcoreapp3.1\en\WebApplication3.resources.dll
@@ -437,3 +436,8 @@ C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\WebApplication3.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\WebApplication3.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SelectLanguagePartial.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\Home\CommentList.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\Home\PostList.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\PostManager\ManageComments.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_CommentPartialAdmin.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\PostManager\ManageUsers.cshtml.g.cs

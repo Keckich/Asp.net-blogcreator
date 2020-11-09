@@ -22,10 +22,8 @@ namespace WebApplication3.Controllers
             db = context;
             _userManager = userManager;
         }
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-                      
-
             var postCategoryVm = new CommentViewModel
             {
                 Posts = db.Posts.ToList(),                
@@ -34,13 +32,13 @@ namespace WebApplication3.Controllers
             return View(postCategoryVm);
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Details(int id, int postId)
         {
             var postCommentVm = new CommentViewModel
             {
-                Post = db.Posts.Find(id),
+                Post = db.Posts.Find(postId),
                 //PostComment = new Comment {PostId = id}
-                Comments = db.Comments.ToList()
+                Comments = db.Comments.Where(c => c.PostId == postId).ToList()
             };
 
             return View(postCommentVm);
@@ -70,13 +68,14 @@ namespace WebApplication3.Controllers
 
         [HttpPost]
         public IActionResult ApplyComment(int id, int postId)
-        {
+        {            
             if (ModelState.IsValid)
             {
                 db.Comments.Find(id).CommentPosted = true;
                 db.SaveChanges();
             }
-            return RedirectPermanent($"~/PostManager/Details/{postId}");
+            //return RedirectPermanent($"~/PostManager/Details/{postId}");
+            return RedirectToAction("ManageComments", new { postIdManage = postId });
         }
 
         [HttpPost]
@@ -87,7 +86,33 @@ namespace WebApplication3.Controllers
                 db.Comments.Remove(db.Comments.Find(id));
                 db.SaveChanges();
             }
-            return RedirectPermanent($"~/PostManager/Details/{postId}");
+            return RedirectToAction("ManageComments", new { postIdManage = postId });
+        }
+
+        public PartialViewResult ManageComments(int postIdManage)
+        {
+            //var comments = db.Comments.Where(c => c.PostId == postIdManage).ToList();
+            var postCommentVm = new CommentViewModel
+            {
+                Post = db.Posts.Find(postIdManage),
+                //PostComment = new Comment {PostId = id}
+                Comments = db.Comments.ToList()
+            };
+            return PartialView(postCommentVm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            await _userManager.DeleteAsync(_userManager.FindByIdAsync(id).Result);
+            
+            return RedirectToAction("ManageUsers");
+        }
+
+
+        public PartialViewResult ManageUsers()
+        {
+            return PartialView();
         }
     }
 }

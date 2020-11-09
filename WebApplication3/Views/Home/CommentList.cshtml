@@ -1,0 +1,14 @@
+﻿@model WebApplication3.Models.CommentViewModel
+
+
+<div class="listing" id="commentList">
+    @foreach (var comment in Model.Comments)
+    {
+        @if (comment.CommentPosted == true && comment.PostId == Model.Post.Id)
+        {
+            <lu>
+                @await Html.PartialAsync("_CommentPartial", comment)
+            </lu>
+        }
+    }
+</div>
