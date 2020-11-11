@@ -30,7 +30,7 @@ namespace WebApplication3.Areas.Identity.Pages.Account.Manage
 
         public static string UserPostsNavClass(ViewContext viewContext) => PageNavClass(viewContext, UserPosts);
 
-        public static string EmailNavClass(ViewContext viewContext) => PageNavClass(viewContext, Email);
+        public static string EmailNavClass(ViewContext viewContext) => PageNavClass(viewContext, Email);        
 
         public static string ChangePasswordNavClass(ViewContext viewContext) => PageNavClass(viewContext, ChangePassword);
 

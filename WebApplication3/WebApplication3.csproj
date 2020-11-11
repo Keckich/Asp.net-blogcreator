@@ -10,6 +10,12 @@
       <Compile Remove="Migrations\20201104235826_PostedField.Designer.cs" />
       <Compile Remove="Migrations\20201105003643_DropPosted.cs" />
       <Compile Remove="Migrations\20201105003643_DropPosted.Designer.cs" />
+      <Compile Remove="Migrations\20201110221139_UserPostsRelation.cs" />
+      <Compile Remove="Migrations\20201110221139_UserPostsRelation.Designer.cs" />
+      <Compile Remove="Migrations\20201110223323_UserPostsRelation.cs" />
+      <Compile Remove="Migrations\20201110223323_UserPostsRelation.Designer.cs" />
+      <Compile Remove="Migrations\20201110225734_CommentLikes.cs" />
+      <Compile Remove="Migrations\20201110225734_CommentLikes.Designer.cs" />
     </ItemGroup>
 
     <ItemGroup>

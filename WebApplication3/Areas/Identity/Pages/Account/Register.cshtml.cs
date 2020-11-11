@@ -60,6 +60,7 @@ namespace WebApplication3.Areas.Identity.Pages.Account
 
             [Required]
             [EmailAddress]
+            
             [Display(Name = "Email")]
             public string Email { get; set; }
 
@@ -94,6 +95,7 @@ namespace WebApplication3.Areas.Identity.Pages.Account
                     FirstName = Input.FirstName, 
                     LastName = Input.LastName 
                 };
+                
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

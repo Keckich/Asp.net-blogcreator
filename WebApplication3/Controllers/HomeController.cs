@@ -60,12 +60,14 @@ namespace WebApplication3.Controllers
             
             return View(postCommentVm);
         }
+
         [HttpPost]
+        [Authorize]
         public IActionResult Details(Comment comment, int id)
         {
             if (ModelState.IsValid)
             {
-                comment.PostedOn = DateTime.Now;
+                comment.PostedOn = DateTime.Now;                
                 comment.CommentAuthor = _userManager.GetUserName(this.User);                
                 db.Add(comment);
                 
@@ -86,12 +88,10 @@ namespace WebApplication3.Controllers
         {           
             if (ModelState.IsValid)
             {                              
-                db.Posts.Remove(db.Posts.Find(id));
+                db.Posts.Remove(db.Posts.Find(id));                
                 db.SaveChanges();
             }
-            return RedirectToAction("Index");
-            //return Json(new { html = Helper.RenderRazorViewToString(this, "PostPartial", db.Posts.ToList()) });
-            //return PartialView("PostList");
+            return RedirectToAction("Index");            
         }
 
         [HttpPost]
@@ -102,8 +102,6 @@ namespace WebApplication3.Controllers
                 db.Comments.Remove(db.Comments.Find(id));
                 db.SaveChanges();
             }
-            //return RedirectPermanent($"~/Home/Details/{postId}");
-            //return Json(new { html = Helper.RenderRazorViewToString(this, nameof(Details), db.Comments.ToList()) });
             return RedirectToAction("CommentList", new { id = postId });
         }
 
@@ -115,6 +113,45 @@ namespace WebApplication3.Controllers
                 Comments = db.Comments.ToList()
             };
             return PartialView(postCommentVm);
+        }
+
+        public IActionResult Like(int commentId, int postId)
+        {
+            if (ModelState.IsValid)
+            {
+                var comment = db.Comments.Find(commentId);
+                var like = new Like
+                {
+                    Username = _userManager.GetUserName(this.User),
+                    CommentId = commentId
+                };
+                if (db.Likes
+                    .Where(l => l.CommentId == commentId)
+                    .Where(l => l.Username == _userManager.GetUserName(this.User))
+                    .Any())
+                {
+                    var likes = db.Likes
+                    .Where(l => l.CommentId == commentId)
+                    .Where(l => l.Username == _userManager.GetUserName(this.User))
+                    .ToList();
+                    _logger.LogInformation("tuta");
+                    db.Likes.Remove(likes[0]);
+                    comment.LikesCount--;
+                }
+                else
+                {
+                    db.Likes.Add(like);                    
+                    comment.LikesCount++;                              
+                }
+                db.SaveChanges();
+            }
+            //return RedirectToAction("_CommentPartial", new { id = CommentId});
+            return RedirectToAction("CommentList", new { id = postId });
+        }
+
+        public PartialViewResult _CommentPartial(int id)
+        {
+            return PartialView(db.Comments.Find(id));
         }
 
         [HttpPost]

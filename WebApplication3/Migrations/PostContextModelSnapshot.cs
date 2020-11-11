@@ -48,6 +48,9 @@ namespace WebApplication3.Migrations
                     b.Property<bool>("CommentPosted")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("LikesCount")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("PostId")
                         .HasColumnType("INTEGER");
 
@@ -59,6 +62,25 @@ namespace WebApplication3.Migrations
                     b.HasIndex("PostId");
 
                     b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("WebApplication3.Models.Like", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CommentId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CommentId");
+
+                    b.ToTable("Likes");
                 });
 
             modelBuilder.Entity("WebApplication3.Models.Post", b =>
@@ -91,7 +113,8 @@ namespace WebApplication3.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(18);
 
                     b.HasKey("Id");
 
@@ -129,6 +152,15 @@ namespace WebApplication3.Migrations
                     b.HasOne("WebApplication3.Models.Post", "Post")
                         .WithMany("Comments")
                         .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WebApplication3.Models.Like", b =>
+                {
+                    b.HasOne("WebApplication3.Models.Comment", "Comment")
+                        .WithMany("Likes")
+                        .HasForeignKey("CommentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

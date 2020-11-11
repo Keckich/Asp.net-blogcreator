@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApplication3.Models;
@@ -34,6 +35,7 @@ namespace WebApplication3.Controllers
             if (ModelState.IsValid)
             {
                 post.Author = _userManager.GetUserName(this.User);
+                //post.User = _userManager.GetUserAsync(this.User).Result;
                 post.PostedOn = DateTime.Now;
                 db.Posts.Add(post);
                 db.SaveChanges();

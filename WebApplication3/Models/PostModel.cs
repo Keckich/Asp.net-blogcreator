@@ -20,5 +20,6 @@ namespace WebApplication3.Models
         public bool Posted { get; set; }
         //public IList<Tag> Tags { get; set; } 
         public List<Comment> Comments { get; set; }
+        //public ApplicationUser User { get; set; }        
     }
 }

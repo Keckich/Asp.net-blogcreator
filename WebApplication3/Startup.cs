@@ -40,10 +40,10 @@ namespace WebApplication3
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            /*            services.AddIdentity<ApplicationUser, IdentityRole>()
-                            .AddEntityFrameworkStores<ApplicationDbContext>()
-                            .AddDefaultUI()
-                            .AddDefaultTokenProviders();*/
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+            });
 
             services.AddControllersWithViews();
             /*services.AddMvc(options => options.EnableEndpointRouting = false);*/

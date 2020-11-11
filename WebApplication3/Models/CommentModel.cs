@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace WebApplication3.Models
 {
@@ -9,6 +10,8 @@ namespace WebApplication3.Models
         public Post Post { get; set; }
         public int PostId { get; set; }
         public bool CommentPosted { get; set; }
+        public List<Like> Likes { get; set; }
+        public int LikesCount { get; set; }
         public string? CommentAuthor { get; set; }
         public DateTime? PostedOn { get; set; }
     }

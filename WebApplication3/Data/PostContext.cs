@@ -15,6 +15,7 @@ namespace WebApplication3.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Like> Likes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,6 +23,8 @@ namespace WebApplication3.Models
             modelBuilder.Entity<Post>().HasOne(p => p.Category).WithMany(c => c.Posts).HasForeignKey(p => p.CategoryId);
             //modelBuilder.Entity<Tag>().HasMany(t => t.Posts).WithOne(p => p.Tag).HasForeignKey(p => p.Id);
             modelBuilder.Entity<Post>().HasMany(p => p.Comments).WithOne(c => c.Post).HasForeignKey(c => c.PostId);
+            modelBuilder.Entity<Comment>().HasMany(c => c.Likes).WithOne(l => l.Comment).HasForeignKey(l => l.CommentId);
+            //modelBuilder.Entity<ApplicationUser>().HasMany(u => u.Posts).WithOne(p => p.User).HasForeignKey(p => p.Author);
         }
     }
 }

@@ -1,6 +1,8 @@
-@using Microsoft.AspNetCore.Identity
+﻿@using Microsoft.AspNetCore.Identity
 @inject UserManager<ApplicationUser> UserManager
 @model Comment
+
+
 
 <div class="row justify-content-center">
 
@@ -25,5 +27,16 @@
                 </span>
             </div>
         </form>
+        <p>
+            <form method="post" asp-action="Like" asp-controller="Home" asp-route-CommentId="@Model.CommentId" asp-route-postId="@Model.PostId"
+                  data-ajax="true" data-ajax-mode="replace" data-ajax-update="#comments" enctype="multipart/form-data">
+                @*<button class="btn btn-info">Like @Model.LikesCount</button>*@
+                <div class='like'>
+                    @Model.LikesCount
+                    <button class='like-toggle basic2'>♥</button>
+
+                </div>
+            </form>
+        </p>
     </div>
 </div>

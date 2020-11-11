@@ -11,5 +11,6 @@ namespace WebApplication3.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public byte[] ProfilePicture { get; set; }
+        public List<Post> Posts { get; set; }
     }
 }
