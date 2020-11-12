@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using WebApplication3.Data;
 using WebApplication3.Models;
 
 namespace WebApplication3.Areas.Identity.Pages.Account.Manage
@@ -13,10 +14,10 @@ namespace WebApplication3.Areas.Identity.Pages.Account.Manage
     public class PostViewModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private PostContext db;
+        private ApplicationDbContext db;
         private readonly ILogger<PostViewModel> _logger;
 
-        public PostViewModel(ILogger<PostViewModel> logger, UserManager<ApplicationUser> userManager, PostContext context)
+        public PostViewModel(ILogger<PostViewModel> logger, UserManager<ApplicationUser> userManager, ApplicationDbContext context)
         {
             _userManager = userManager;
             db = context;

@@ -12,6 +12,7 @@ namespace WebApplication3.Models
         public bool CommentPosted { get; set; }
         public List<Like> Likes { get; set; }
         public int LikesCount { get; set; }
+        public ApplicationUser User { get; set; }
         public string? CommentAuthor { get; set; }
         public DateTime? PostedOn { get; set; }
     }

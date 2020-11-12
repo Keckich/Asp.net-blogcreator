@@ -24,7 +24,7 @@ namespace WebApplication3
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<PostContext>();
+                    var context = services.GetRequiredService<ApplicationDbContext>();
                     context.Database.Migrate();
                     CategoryInitial.Initialize(context);
                     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 using Microsoft.Extensions.Logging;
+using WebApplication3.Data;
 using WebApplication3.Models;
 
 namespace WebApplication3.Areas.Identity.Pages.Account.Manage
@@ -14,10 +15,10 @@ namespace WebApplication3.Areas.Identity.Pages.Account.Manage
     public class PostEditModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private PostContext db;
+        private ApplicationDbContext db;
         private readonly ILogger<PostEditModel> _logger;
 
-        public PostEditModel(ILogger<PostEditModel> logger, UserManager<ApplicationUser> userManager, PostContext context)
+        public PostEditModel(ILogger<PostEditModel> logger, UserManager<ApplicationUser> userManager, ApplicationDbContext context)
         {
             _userManager = userManager;
             db = context;
@@ -54,6 +55,7 @@ namespace WebApplication3.Areas.Identity.Pages.Account.Manage
         {
             var _post = db.Posts.Find(post.Id);
             _post.Category = post.Category;
+            _post.CategoryId = post.CategoryId;
             _post.Title = post.Title;
             _post.ShortDescription = post.ShortDescription;
             _post.Description = post.Description;

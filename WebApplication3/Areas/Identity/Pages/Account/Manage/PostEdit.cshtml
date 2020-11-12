@@ -12,7 +12,7 @@
                 {
                     @if (category.Id == Model.PostEdit.Post.CategoryId)
                     {
-                        <option selected="selected" value="@category.Id">@category.Title</option>
+                        <option selected="selected" disabled="disabled" value="@category.Id">@category.Title</option>
                     }
                     else
                     {

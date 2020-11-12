@@ -34,9 +34,9 @@ namespace WebApplication3
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<PostContext>(options =>
+            /*services.AddDbContext<PostContext>(options =>
                 options.UseSqlite(
-                    Configuration.GetConnectionString("PostContext")));
+                    Configuration.GetConnectionString("PostContext")));*/
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();

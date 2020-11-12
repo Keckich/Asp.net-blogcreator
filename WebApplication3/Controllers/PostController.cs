@@ -7,16 +7,17 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using WebApplication3.Data;
 using WebApplication3.Models;
 
 namespace WebApplication3.Controllers
 {
     public class PostController : Controller
     {
-        private PostContext db;
+        private ApplicationDbContext db;
         private readonly ILogger<PostController> _logger;
         UserManager<ApplicationUser> _userManager;
-        public PostController(ILogger<PostController> logger, PostContext context, UserManager<ApplicationUser> userManager)
+        public PostController(ILogger<PostController> logger, ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _logger = logger;
             db = context;

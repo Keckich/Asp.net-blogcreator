@@ -3,15 +3,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WebApplication3.Data;
 using WebApplication3.Models;
 
 namespace WebApplication3.ViewComponents
 {
     public class LastPostsViewComponent : ViewComponent
     {
-        private PostContext db;
+        private ApplicationDbContext db;
 
-        public LastPostsViewComponent(PostContext context)
+        public LastPostsViewComponent(ApplicationDbContext context)
         {
             db = context;
         }

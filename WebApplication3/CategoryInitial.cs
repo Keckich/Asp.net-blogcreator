@@ -1,11 +1,12 @@
 using System.Linq;
+using WebApplication3.Data;
 using WebApplication3.Models;
 
 namespace WebApplication3
 {
     public class CategoryInitial
     {
-        public static void Initialize(PostContext context)
+        public static void Initialize(ApplicationDbContext context)
         {
             if (!context.Categories.Any())
             {

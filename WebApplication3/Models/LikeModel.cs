@@ -11,7 +11,8 @@ namespace WebApplication3.Models
         public int Id { get; set; }
         public Comment Comment { get; set; }         
         public int CommentId { get; set; }
-        public string Username { get; set; }       
+        public string Username { get; set; }
+        public ApplicationUser User { get; set; }
     }
 
 }

@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using WebApplication3.Data;
 using WebApplication3.Models;
 
 namespace WebApplication3.Controllers
@@ -18,9 +19,9 @@ namespace WebApplication3.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private PostContext db;
+        private ApplicationDbContext db;
         UserManager<ApplicationUser> _userManager;
-        public HomeController(ILogger<HomeController> logger, PostContext context, UserManager<ApplicationUser> userManager)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _logger = logger;
             db = context;
