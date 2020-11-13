@@ -6,6 +6,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Data\Migrations\20201113020019_AllInOneContext.cs" />
+      <Compile Remove="Data\Migrations\20201113020019_AllInOneContext.Designer.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
       <EmbeddedResource Remove="Resources\Views\PostManager\Details.de.resx" />
       <EmbeddedResource Remove="Resources\Views\Shared\_CommentPartialAdmin.de.resx" />
       <EmbeddedResource Remove="Resources\Views\Shared\_CommentPartialAdmin.en.resx" />
