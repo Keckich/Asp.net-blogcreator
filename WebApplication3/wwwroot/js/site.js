@@ -3,7 +3,7 @@
 
 // Write your JavaScript code.
 
-AjaxDeleteComment = form => {
+/*AjaxDeleteComment = form => {
     
     if (confirm('Are you sure to delete this object? It cannot be restored.')) {
         try {
@@ -48,10 +48,31 @@ AjaxDelete = form => {
     }
 }
 return false;
-}
+}*/
 /*$(function () {
     $('.like-toggle').click(function () {
         $(this).toggleClass('like-active');
         $(this).next().toggleClass('hidden');
     });
 });*/
+/*$(function () {
+    $('#btnEdit').click(function (e) {
+        e.preventDefault();
+        $('#confirmDialog').dialog('open');
+    });
+
+    $('#confirmDialog').dialog({
+        autoOpen: false,
+        modal: true,
+        resizable: false,
+        buttons: {
+            "Ok": function () {
+                $('#editForm').submit();
+            },
+            "Cancel": function () {
+                $(this).dialog('close');
+            }
+        },
+    });
+});*/
+

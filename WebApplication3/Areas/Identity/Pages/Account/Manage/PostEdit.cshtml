@@ -1,9 +1,11 @@
 ﻿@page
 @model WebApplication3.Areas.Identity.Pages.Account.Manage.PostEditModel
 @{
+    var mid = "myModal" + Model.PostEdit.Post.Id;
+    var tm = "#myModal" + Model.PostEdit.Post.Id;
 }
 
-<form method="post">
+<form method="post" id="editForm">
     <fieldset>
         <p>
             <label>Category:</label>
@@ -12,7 +14,7 @@
                 {
                     @if (category.Id == Model.PostEdit.Post.CategoryId)
                     {
-                        <option selected="selected" disabled="disabled" value="@category.Id">@category.Title</option>
+                        <option selected="selected" value="@category.Id">@category.Title</option>
                     }
                     else
                     {
@@ -34,8 +36,28 @@
             <label>Description:</label>
             <textarea id="editor1" name="Description">@Model.PostEdit.Post.Description</textarea>
             <input type="hidden" name="Posted" value="false" />
-            <input type="submit" value="Edit">
+            
+
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="@tm">
+                Edit
+            </button>
+            <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">Edit Confirmation</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            Do you want to save changes?
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-success" value="Edit">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>            
         </p>
-        
     </fieldset>
 </form>

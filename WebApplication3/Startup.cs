@@ -16,6 +16,8 @@ using WebApplication3.Models;
 using Microsoft.AspNetCore.Authentication.Google;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
+using WebApplication3.Hubs;
+using WebApplication3.Repository;
 
 namespace WebApplication3
 {
@@ -44,13 +46,14 @@ namespace WebApplication3
             {
                 options.User.RequireUniqueEmail = true;
             });
-
+            services.AddSignalR();
             services.AddControllersWithViews();
             /*services.AddMvc(options => options.EnableEndpointRouting = false);*/
             services.AddRazorPages();
             services.AddControllersWithViews()
                 .AddDataAnnotationsLocalization()
                 .AddViewLocalization();
+            services.AddTransient<INotificationRepository, NotificationRepository>();
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             services.Configure<RequestLocalizationOptions>(options =>
             {
@@ -91,7 +94,7 @@ namespace WebApplication3
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            
             app.UseRequestLocalization();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -105,10 +108,10 @@ namespace WebApplication3
             });*/
             app.UseAuthentication();
             app.UseAuthorization();
-
-    
+            
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<NotificationHub>("/NotificationHub");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

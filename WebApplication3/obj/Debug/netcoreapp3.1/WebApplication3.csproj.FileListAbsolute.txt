@@ -432,9 +432,6 @@ C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\en\WebApplication3.resources.dll
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\ru\WebApplication3.resources.dll
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\bin\Debug\netcoreapp3.1\Localization.AspNetCore.TagHelpers.dll
-C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\WebApplication3.csproj.CoreCompileInputs.cache
-C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\WebApplication3.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\WebApplication3.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SelectLanguagePartial.cshtml.g.cs
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\Home\CommentList.cshtml.g.cs
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\Home\PostList.cshtml.g.cs
@@ -481,3 +478,6 @@ C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Email.cshtml.g.cs
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml.g.cs
 C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_StatusMessage.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\WebApplication3.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\WebApplication3.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Administrator\Source\Repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\WebApplication3.MvcApplicationPartsAssemblyInfo.cache

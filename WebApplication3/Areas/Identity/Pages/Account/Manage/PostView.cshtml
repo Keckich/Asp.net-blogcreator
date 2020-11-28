@@ -6,6 +6,9 @@
     ViewData["ActivePage"] = ManageNavPages.UserPosts;
 }
 
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/site.js"></script>
+
 <h4>@ViewData["Title"]</h4>
 
 <partial name="_StatusMessage" model="Model.StatusMessage" />
@@ -17,12 +20,14 @@
             <th>Posted on</th>
             <th>Category</th>
             <th>Posted</th>
-            <th>Action</th>            
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.Post.Posts)
         {
+            var mid = "myModal" + item.Id;
+            var tm = "#myModal" + item.Id;
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Author)
@@ -40,14 +45,38 @@
                     @Html.DisplayFor(modelItem => item.Posted)
                 </td>
                 <td>
-                    <form method="get" >
+                    <form method="get">
                         <a class="btn btn-info" asp-page="PostDetails" asp-route-id="@item.Id">Details</a> |
                     </form>
                     <form method="post">
-                        <a class="btn btn-success" asp-page="PostEdit" asp-route-id="@item.Id">Edit</a> |                        
-                        <button class="btn btn-danger" asp-page-handler="delete" asp-route-id="@item.Id">Delete</button>
+                        <a class="btn btn-success" asp-page="PostEdit" asp-route-id="@item.Id">Edit</a> |
                     </form>
-                    
+                    <form method="post">
+
+                        @*<button id="btnDelete" class="btn btn-danger" data-toggle="modal" asp-page-handler="delete" asp-route-id="@item.Id">Delete</button>*@
+
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="@tm">
+                            Delete
+                        </button>
+                        <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure want to delete this item?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button asp-page-handler="delete" asp-route-id="@item.Id" id="btnDelete" class="btn bg-danger">Delete</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
                 </td>
             </tr>
         }

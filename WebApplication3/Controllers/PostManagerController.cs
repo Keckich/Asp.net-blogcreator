@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using WebApplication3.Data;
 using WebApplication3.Models;
+using WebApplication3.Repository;
 
 namespace WebApplication3.Controllers
 {
@@ -16,12 +17,15 @@ namespace WebApplication3.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private ApplicationDbContext db;
-        UserManager<ApplicationUser> _userManager;
-        public PostManagerController(ILogger<HomeController> logger, ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        private UserManager<ApplicationUser> _userManager;
+        private INotificationRepository _notificationRepository;
+        public PostManagerController(ILogger<HomeController> logger, ApplicationDbContext context, 
+                                     UserManager<ApplicationUser> userManager, INotificationRepository notificationRepository)
         {
             _logger = logger;
             db = context;
             _userManager = userManager;
+            _notificationRepository = notificationRepository;
         }
         public IActionResult Index()
         {
@@ -50,9 +54,13 @@ namespace WebApplication3.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Posts.Find(id).Posted = true;
+                var post = db.Posts.Find(id);
+                post.Posted = true;
+                string text = $"New article in category {db.Categories.Find(post.CategoryId).Title} has been already posted!";
+                _notificationRepository.Create(text);
                 db.SaveChanges();
             }
+
             return RedirectToAction("Index");
         }
 

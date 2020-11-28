@@ -1,7 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject UserManager<ApplicationUser> UserManager
 @model Comment
-
+@{
+    var mid = "myModal" + Model.CommentId;
+    var tm = "#myModal" + Model.CommentId;
+}
 
 
 <div class="row justify-content-center">
@@ -12,21 +15,42 @@
         <p>@Model.PostedOn</p>
     </div>
     <div class="col col-1">
-        <form method="post" asp-action="DeleteComment" asp-controller="Home" asp-route-id="@Model.CommentId" asp-route-postId="@Model.PostId"
-              data-ajax="true" data-ajax-mode="replace" data-ajax-update="#comments" enctype="multipart/form-data">
-            <div class="input-group">
-                <span class="input-group-btn">
-                    @if (UserManager.GetUserAsync(User).Result != null && UserManager.GetUserAsync(User).Result.UserName == Model.CommentAuthor && !User.IsInRole("Admin"))
-                    {
-                        <button class="btn btn-danger">x</button>
-                    }
-                    @if (User.IsInRole("Admin") && Model.CommentPosted == true)
-                    {
-                        <button class="btn btn-danger">x</button>
-                    }
-                </span>
-            </div>
-        </form>
+        @if ((User.IsInRole("Admin") || User.IsInRole("Moderator")) && Model.CommentPosted == true)
+        {
+            <form method="post" asp-action="DeleteComment" asp-controller="Home" asp-route-id="@Model.CommentId" asp-route-postId="@Model.PostId"
+                  data-ajax="true" data-ajax-mode="replace" data-ajax-update="#comments" enctype="multipart/form-data">
+                <div class="input-group">
+                    <span class="input-group-btn">                          
+                        <button class="close" data-toggle="modal" data-target="@tm" aria-hidden="true">&times;</button>                        
+                    </span>
+                </div>
+            </form>
+        }
+        @if (UserManager.GetUserAsync(User).Result != null && UserManager.GetUserAsync(User).Result.UserName == Model.CommentAuthor && !User.IsInRole("Admin") && !User.IsInRole("Moderator"))
+        {
+            <button class="close" data-toggle="modal" data-target="@tm" aria-hidden="true">&times;</button>
+            <form method="post" asp-action="DeleteCommentUser" asp-controller="Home" asp-route-id="@Model.CommentId" asp-route-postId="@Model.PostId">
+                <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure want to delete this comment?
+                            </div>
+                            <div class="modal-footer">
+                                <button id="btnDelete" class="btn bg-danger">
+                                    Delete
+                                </button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        }
         <p>
             <form method="post" asp-action="Like" asp-controller="Home" asp-route-CommentId="@Model.CommentId" asp-route-postId="@Model.PostId"
                   data-ajax="true" data-ajax-mode="replace" data-ajax-update="#comments" enctype="multipart/form-data">
@@ -34,7 +58,6 @@
                 <div class='like'>
                     @Model.LikesCount
                     <button class='like-toggle basic2'>♥</button>
-
                 </div>
             </form>
         </p>

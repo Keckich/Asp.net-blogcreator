@@ -15,5 +15,6 @@ namespace WebApplication3.Models
         public List<Post> Posts { get; set; }
         public List<Comment> Comments { get; set; }
         public List<Like> Likes { get; set; }
+        public List<NotificationUser> UserNotifications { get; set; }
     }
 }

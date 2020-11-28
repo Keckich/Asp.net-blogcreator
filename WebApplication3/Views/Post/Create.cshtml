@@ -3,8 +3,15 @@
 @model IEnumerable<WebApplication3.Models.Category>
 @{
     ViewData["Title"] = @Localizer["MainTitle"];
+    var mid = "myModal";
+    var tm = "#myModal";
+
 }
 <h1>@ViewData["Title"]</h1>
+<div id="notify"></div>
+
+<script src="~/lib/signalr.js/jquery.signalR.min.js"></script>
+<script src="~/lib/aspnet-signalr/signalr.min.js"></script>
 
 <form method="post">
     <fieldset>
@@ -19,7 +26,7 @@
         </p>
         <p>
             <label>@Localizer["Title"]:</label>
-            <input type="text" name="Title" style="min-width: 1070px" />
+            <input id="articleHeading" type="text" name="Title" style="min-width: 1070px" />
         </p>
         <p>
             <label>@Localizer["ShortDescription"]:</label>
@@ -29,7 +36,28 @@
             <label>@Localizer["Description"]:</label>
             <textarea id="editor1" name="Description"></textarea>
             <input type="hidden" name="Posted" value="false" />
-            <input type="submit" value=@Localizer["Submit"]>
+
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="@tm">
+                @Localizer["Submit"]
+            </button>
+            <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">Submit Post Confirmation</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure to submit this post? Before it appears on the page it will be validate by administration,
+                            this may take up two days.
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-success" value=@Localizer["Submit"]>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </p>
     </fieldset>
 </form>

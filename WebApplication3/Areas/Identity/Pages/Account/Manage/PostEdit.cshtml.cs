@@ -55,6 +55,7 @@ namespace WebApplication3.Areas.Identity.Pages.Account.Manage
         {
             var _post = db.Posts.Find(post.Id);
             _post.Category = post.Category;
+            _post.Posted = false;
             _post.CategoryId = post.CategoryId;
             _post.Title = post.Title;
             _post.ShortDescription = post.ShortDescription;

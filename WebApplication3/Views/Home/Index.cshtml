@@ -8,21 +8,17 @@
 }
 
 <h1>@ViewData["Title"]</h1>
-
+<div id="articleList"></div>
+<script>
+    function ready() {
+    }
+    var userId = Math.floor((Math.random() * 100) + 1);
+    document.addEventListener("DOMContentLoaded", ready);
+</script>
 
 
 <div class="page-wrapper">
     <ul class="col-md-8" id="posts">
-        @* @foreach (var post in Model.Posts)
-            {
-                @if (post.Posted != false)
-                {
-                     <li>
-                        @await Html.PartialAsync("_PostPartial", post)
-                     </li>
-                }
-
-            }*@
         @await Html.PartialAsync("~/Views/Home/PostList.cshtml", Model.Posts)
     </ul>
     <div class="right-panel-wrapper">
@@ -41,6 +37,9 @@
         </div>
     </div>
 </div>
-
+<script src="~/js/notification.js"></script>
+<script src="~/js/signalr/jquery.signalR.min.js"></script>
+<script src="~/lib/signalr.js/jquery.signalR.js"></script>
+<script src="~/lib/aspnet-signalr/signalr.js"></script>
 
 

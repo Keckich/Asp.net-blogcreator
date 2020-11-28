@@ -3,24 +3,46 @@
 @inject IViewLocalizer Localizer
 @inject UserManager<ApplicationUser> UserManager
 @model WebApplication3.Models.CommentViewModel
+@{
+    var mid = "myModal" + Model.Post.Id;
+    var tm = "#myModal" + Model.Post.Id;
+}
 
 <div class="page-wrapper">
     <ul class="col-md-8">
         @await Html.PartialAsync("_PostPartial", Model.Post)
-        <form method="post" asp-action="Delete" asp-controller="Home" asp-route-id="@Model.Post.Id" asp-route-author="@Model.Post.Author">
-            @if (UserManager.GetUserAsync(User).Result != null && UserManager.GetUserAsync(User).Result.UserName == Model.Post.Author && !User.IsInRole("Admin"))
-            {
-                <span class="input-group-btn">
-                    <button class="btn btn-danger">@Localizer["Delete"]</button>
-                </span>
+        @if (UserManager.GetUserAsync(User).Result != null && UserManager.GetUserAsync(User).Result.UserName == Model.Post.Author && !User.IsInRole("Admin") && !User.IsInRole("Moderator"))
+        {
+            <span class="input-group-btn">
+                <button class="btn btn-danger" data-toggle="modal" data-target="@tm">@Localizer["Delete"]</button>
+            </span>
 
-            }
-            @if (User.IsInRole("Admin") && Model.Post.Posted == true)
-            {
-                <span class="input-group-btn">
-                    <button class="btn btn-danger">@Localizer["Delete"]</button>
-                </span>
-            }
+        }
+        @if ((User.IsInRole("Admin") || User.IsInRole("Moderator")) && Model.Post.Posted == true)
+        {
+            <span class="input-group-btn">
+                <button class="btn btn-danger" data-toggle="modal" data-target="@tm">@Localizer["Delete"]</button>
+            </span>
+        }
+        <form method="post" asp-action="Delete" asp-controller="Home" asp-route-id="@Model.Post.Id" asp-route-author="@Model.Post.Author">
+
+            <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure want to delete this item?
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn bg-danger">Delete</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
         <hr />
         <p>@Html.Raw(Model.Post.Description)</p>
@@ -41,7 +63,28 @@
                 <input type="hidden" name="PostId" value="@Model.Post.Id">
             </p>
             <div class="form-group">
-                <input type="submit" value="Create">
+
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="@tm">
+                    Submit
+                </button>
+                <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">Submit Comment Confirmation</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure to post this comment? Before it appears on the page it will be validate by administration,
+                                this may take up two days.
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-success" value="Submit">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </div>

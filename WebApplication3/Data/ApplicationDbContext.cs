@@ -21,6 +21,7 @@ namespace WebApplication3.Data
         //public DbSet<Tag> Tags { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Like> Likes { get; set; }
+        public DbSet<NotificationUser> UserNotifications { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -32,6 +33,9 @@ namespace WebApplication3.Data
             modelBuilder.Entity<ApplicationUser>().HasMany(u => u.Posts).WithOne(p => p.User).HasForeignKey(p => p.Author).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<ApplicationUser>().HasMany(u => u.Comments).WithOne(c => c.User).HasForeignKey(c => c.CommentAuthor).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<ApplicationUser>().HasMany(u => u.Likes).WithOne(l => l.User).HasForeignKey(l => l.Username).OnDelete(DeleteBehavior.Cascade);
+
+         
+            modelBuilder.Entity<ApplicationUser>().HasMany(u => u.UserNotifications).WithOne(n => n.User).HasForeignKey(n => n.UserId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

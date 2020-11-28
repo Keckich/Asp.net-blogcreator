@@ -96,6 +96,17 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPost]
+        public IActionResult DeleteCommentUser(int id, int postId)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Comments.Remove(db.Comments.Find(id));
+                db.SaveChanges();
+            }
+            return RedirectPermanent($"~/Home/Details/{postId}");
+        }
+
+        [HttpPost]
         public IActionResult DeleteComment(int id, int postId)
         {
             if (ModelState.IsValid)

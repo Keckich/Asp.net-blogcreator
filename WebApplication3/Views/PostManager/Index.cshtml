@@ -18,7 +18,10 @@
     <div class="tabs">
         <label class="tab" id="one-tab" for="one">@Localizer["Posts"]</label>
         <label class="tab" id="two-tab" for="two">@Localizer["Comments"]</label>
-        <label class="tab" id="three-tab" for="three">@Localizer["Users"]</label>
+        @if (User.IsInRole("Admin"))
+        {
+            <label class="tab" id="three-tab" for="three">@Localizer["Users"]</label>
+        }
     </div>
     <div class="panels">
         <div class="panel" id="one-panel">

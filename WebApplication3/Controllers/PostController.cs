@@ -4,10 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
 using WebApplication3.Data;
+using WebApplication3.Hubs;
 using WebApplication3.Models;
 
 namespace WebApplication3.Controllers
@@ -17,11 +20,14 @@ namespace WebApplication3.Controllers
         private ApplicationDbContext db;
         private readonly ILogger<PostController> _logger;
         UserManager<ApplicationUser> _userManager;
-        public PostController(ILogger<PostController> logger, ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        IHubContext<NotificationHub> _hubContext;
+        public PostController(ILogger<PostController> logger, ApplicationDbContext context, 
+            UserManager<ApplicationUser> userManager, IHubContext<NotificationHub> hubContext)
         {
             _logger = logger;
             db = context;
             _userManager = userManager;
+            _hubContext = hubContext;   
         }
         [HttpGet]
         [Authorize]
@@ -39,11 +45,10 @@ namespace WebApplication3.Controllers
                 //post.User = _userManager.GetUserAsync(this.User).Result;
                 post.PostedOn = DateTime.Now;
                 db.Posts.Add(post);
-                db.SaveChanges();
+                db.SaveChanges();                
             }
-
+            //await _hubContext.Clients.All.SendAsync("sendToUser", post.Title, post.Author);
             return RedirectPermanent("~/Home/Index");
-        }
-       
+        }       
     }
 }

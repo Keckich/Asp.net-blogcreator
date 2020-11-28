@@ -221,6 +221,116 @@ namespace WebApplication3.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("WebApplication3.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("WebApplication3.Models.Comment", b =>
+                {
+                    b.Property<int>("CommentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CContent")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CommentAuthor")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CommentPosted")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("LikesCount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("PostedOn")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CommentId");
+
+                    b.HasIndex("CommentAuthor");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("WebApplication3.Models.Like", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CommentId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CommentId");
+
+                    b.HasIndex("Username");
+
+                    b.ToTable("Likes");
+                });
+
+            modelBuilder.Entity("WebApplication3.Models.Post", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Author")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("Posted")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("PostedOn")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ShortDescription")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(18);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Author");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Posts");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -268,6 +378,48 @@ namespace WebApplication3.Data.Migrations
                     b.HasOne("WebApplication3.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WebApplication3.Models.Comment", b =>
+                {
+                    b.HasOne("WebApplication3.Models.ApplicationUser", "User")
+                        .WithMany("Comments")
+                        .HasForeignKey("CommentAuthor")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("WebApplication3.Models.Post", "Post")
+                        .WithMany("Comments")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WebApplication3.Models.Like", b =>
+                {
+                    b.HasOne("WebApplication3.Models.Comment", "Comment")
+                        .WithMany("Likes")
+                        .HasForeignKey("CommentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebApplication3.Models.ApplicationUser", "User")
+                        .WithMany("Likes")
+                        .HasForeignKey("Username")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("WebApplication3.Models.Post", b =>
+                {
+                    b.HasOne("WebApplication3.Models.ApplicationUser", "User")
+                        .WithMany("Posts")
+                        .HasForeignKey("Author")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("WebApplication3.Models.Category", "Category")
+                        .WithMany("Posts")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
