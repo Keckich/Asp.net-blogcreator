@@ -42,12 +42,12 @@ namespace WebApplication3.Controllers
             if (ModelState.IsValid)
             {
                 post.Author = _userManager.GetUserName(this.User);
-                //post.User = _userManager.GetUserAsync(this.User).Result;
+                
                 post.PostedOn = DateTime.Now;
                 db.Posts.Add(post);
                 db.SaveChanges();                
             }
-            //await _hubContext.Clients.All.SendAsync("sendToUser", post.Title, post.Author);
+            
             return RedirectPermanent("~/Home/Index");
         }       
     }

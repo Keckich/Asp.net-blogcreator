@@ -108,7 +108,7 @@ namespace WebApplication3
             });*/
             app.UseAuthentication();
             app.UseAuthorization();
-            
+           
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<NotificationHub>("/NotificationHub");

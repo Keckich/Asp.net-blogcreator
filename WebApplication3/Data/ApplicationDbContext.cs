@@ -32,9 +32,7 @@ namespace WebApplication3.Data
             modelBuilder.Entity<Comment>().HasMany(c => c.Likes).WithOne(l => l.Comment).HasForeignKey(l => l.CommentId).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<ApplicationUser>().HasMany(u => u.Posts).WithOne(p => p.User).HasForeignKey(p => p.Author).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<ApplicationUser>().HasMany(u => u.Comments).WithOne(c => c.User).HasForeignKey(c => c.CommentAuthor).OnDelete(DeleteBehavior.Cascade);
-            modelBuilder.Entity<ApplicationUser>().HasMany(u => u.Likes).WithOne(l => l.User).HasForeignKey(l => l.Username).OnDelete(DeleteBehavior.Cascade);
-
-         
+            modelBuilder.Entity<ApplicationUser>().HasMany(u => u.Likes).WithOne(l => l.User).HasForeignKey(l => l.Username).OnDelete(DeleteBehavior.Cascade);         
             modelBuilder.Entity<ApplicationUser>().HasMany(u => u.UserNotifications).WithOne(n => n.User).HasForeignKey(n => n.UserId).OnDelete(DeleteBehavior.Cascade);
         }
     }

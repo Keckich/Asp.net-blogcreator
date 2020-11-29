@@ -3,76 +3,83 @@
 
 // Write your JavaScript code.
 
-/*AjaxDeleteComment = form => {
-    
-    if (confirm('Are you sure to delete this object? It cannot be restored.')) {
-        try {
-            $.ajax({
-                type: 'POST',
-                url: form.action,
-                data: new FormData(form),
-                contentType: false,
-                processData: false,
-                success: function (res) {
-                    $("#details").html(res.html);
-                }            
+$('[data-toggle="popover"]').popover({
+    placement: 'bottom',
+    content: function () {
+        return $("#notification-content").html();
+    },
+    html: true
+});
 
-            })
-            console.log(form.postId);
-        } catch (e) {
-            console.log(e);
-        }
-    }
-    return false;
-}
+$(function () {
 
+    $('body').append(`<div id="notification-content" class="hide"></div>`)
 
-AjaxDelete = form => {
-    if (confirm('Are you sure to delete this object? It cannot be restored.')) {
-        try {
-            $.ajax({
-                type: 'POST',
-                url: form.actinon,
-                data: new FormData(form),
-                contentType: false,
-                processData: false,
-                    success: function (res) {
-                        $("#details").html(res.html);
-                        
-                    }
+    function getNotification() {
+        var res = "<ul class='list-group'>";
+        $.ajax({
+            url: "/Notification/getNotification",
+            method: "GET",
+            success: function (result) {
 
-        })
-        
-    } catch (e) {
-        console.log(e);
-    }
-}
-return false;
-}*/
-/*$(function () {
-    $('.like-toggle').click(function () {
-        $(this).toggleClass('like-active');
-        $(this).next().toggleClass('hidden');
-    });
-});*/
-/*$(function () {
-    $('#btnEdit').click(function (e) {
-        e.preventDefault();
-        $('#confirmDialog').dialog('open');
-    });
+                if (result.count != 0) {
+                    $("#notificationCount").html(result.count);
+                    $("#notificationCount").show('slow');
+                } else {
+                    $("#notificationCount").html();
+                    $("#notificationCount").hide('slow');
+                    $("#notificationCount").popover('hide');
+                }
 
-    $('#confirmDialog').dialog({
-        autoOpen: false,
-        modal: true,
-        resizable: false,
-        buttons: {
-            "Ok": function () {
-                $('#editForm').submit();
+                var notifications = result.userNotification;
+                notifications.forEach(element => {
+                    res = res + "<li class='list-group-item notification-text' id='" + element.id + "'>" + element.text + "</li>";
+                });
+
+                res = res + "</ul>";
+
+                $("#notification-content").html(res);
+
+                console.log(result);
             },
-            "Cancel": function () {
-                $(this).dialog('close');
+            error: function (error) {
+                console.log(error);
             }
-        },
-    });
-});*/
+        });
+    }
 
+    $(document).on('click', 'li.notification-text', function (e) {
+        
+        var id = $(this).attr('id');
+
+        readNotification(id, this);
+    })
+
+    function readNotification(id, target) {
+        $.ajax({
+            url: "/Notification/ReadNotification",
+            method: "GET",
+            data: { notificationId: id },
+            success: function (result) {
+                getNotification();
+                $(target).fadeOut('slow');
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        })
+    }
+
+    getNotification();
+
+   
+    let connection = new signalR.HubConnectionBuilder().withUrl("/NotificationHub").build();
+    connection.on('displayNotification', () => {
+        getNotification();
+    });
+
+    connection.start().catch(function (err) {
+        return console.error(err.toString());
+    });
+
+});
