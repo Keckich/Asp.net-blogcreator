@@ -194,9 +194,14 @@ h2 {
     cursor: pointer;
 }
 
-.popover {
-    width: 500px;
+.popover {   
+    width: 500px;   
     cursor: pointer;
+}
+
+.popover-body {
+    max-height: 250px;
+    overflow-y: auto;   
 }
 
 .hide {

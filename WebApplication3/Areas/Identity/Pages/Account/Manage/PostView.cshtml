@@ -9,7 +9,15 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/js/site.js"></script>
 
+
 <h4>@ViewData["Title"]</h4>
+<form method="post">
+    <label>Do you want to get notifications about new posts?</label>
+    <input type="checkbox" name="Notifications" checked="@Model.Post.User.Notifications"/>
+    <button asp-route-check="@Model.Post.User.Notifications" asp-page-handler="notificate">update</button>
+</form>
+
+
 
 <partial name="_StatusMessage" model="Model.StatusMessage" />
 <table class="table">

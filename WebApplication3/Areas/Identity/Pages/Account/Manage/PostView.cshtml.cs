@@ -30,12 +30,15 @@ namespace WebApplication3.Areas.Identity.Pages.Account.Manage
         [BindProperty]
         public InputPost Post { get; set; }
 
+        public bool IsChecked { get; set; }
+
         public class InputPost
         {
             public List<Post> Posts { get; set; }
+            public ApplicationUser User { get; set; }
         }
 
-        public string Username { get; set; }
+        //public string Username { get; set; }
 
 
         public IActionResult OnGet()
@@ -43,7 +46,8 @@ namespace WebApplication3.Areas.Identity.Pages.Account.Manage
             string author = _userManager.GetUserAsync(User).Result.UserName;
             Post = new InputPost
             {                
-                Posts = db.Posts.Where(p => p.Author == author).ToList()
+                Posts = db.Posts.Where(p => p.Author == author).ToList(),
+                User = _userManager.GetUserAsync(User).Result
             };            
             return Page();
         }
@@ -67,6 +71,15 @@ namespace WebApplication3.Areas.Identity.Pages.Account.Manage
             StatusMessage = "Your post has been deleted.";
             return RedirectToPage();
 
+        }
+
+        public async Task<IActionResult> OnPostNotificate(bool check)
+        {
+           
+            var user = db.Users.Find(_userManager.GetUserAsync(User).Result.Id);
+            user.Notifications = !check;
+            await db.SaveChangesAsync();
+            return RedirectToPage();
         }
     }
 }

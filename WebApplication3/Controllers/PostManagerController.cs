@@ -56,7 +56,16 @@ namespace WebApplication3.Controllers
             {
                 var post = db.Posts.Find(id);
                 post.Posted = true;
-                string text = $"New article in category {db.Categories.Find(post.CategoryId).Title} has been already posted!";
+                _logger.LogInformation(Request.Host.ToString());
+
+                //var url = .ActionLink("Link", "Index", "Home");
+                var url = "<a href='"
+                    + Request.Scheme + "://"
+                    + Request.Host 
+                    + Request.PathBase
+                    + @Url.RouteUrl(new { controller = "Home", action = "Details", id = id })
+                    + $"'>{post.Title}</a>";
+                string text = $"New article in category {db.Categories.Find(post.CategoryId).Title} has been already posted: {url}";
                 _notificationRepository.Create(text);
                 db.SaveChanges();
             }

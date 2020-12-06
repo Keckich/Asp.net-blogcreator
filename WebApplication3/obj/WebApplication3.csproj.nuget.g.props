@@ -5,9 +5,9 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Administrator\.nuget\packages\</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\HP\.nuget\packages\</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.7.0</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.8.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="$([MSBuild]::EnsureTrailingSlash($(NuGetPackageFolders)))" />
@@ -20,11 +20,11 @@
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.identity.ui\3.1.9\buildTransitive\Microsoft.AspNetCore.Identity.UI.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.identity.ui\3.1.9\buildTransitive\Microsoft.AspNetCore.Identity.UI.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgNode_js Condition=" '$(PkgNode_js)' == '' ">C:\Users\Administrator\.nuget\packages\node.js\0.10.28</PkgNode_js>
-    <PkgNoGit Condition=" '$(PkgNoGit)' == '' ">C:\Users\Administrator\.nuget\packages\nogit\0.0.8</PkgNoGit>
-    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\Administrator\.nuget\packages\microsoft.codeanalysis.analyzers\2.9.4</PkgMicrosoft_CodeAnalysis_Analyzers>
-    <PkgjQuery Condition=" '$(PkgjQuery)' == '' ">C:\Users\Administrator\.nuget\packages\jquery\1.8.0</PkgjQuery>
-    <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\Administrator\.nuget\packages\microsoft.entityframeworkcore.tools\3.1.9</PkgMicrosoft_EntityFrameworkCore_Tools>
-    <PkgBower Condition=" '$(PkgBower)' == '' ">C:\Users\Administrator\.nuget\packages\bower\1.3.11</PkgBower>
+    <PkgNode_js Condition=" '$(PkgNode_js)' == '' ">C:\Users\HP\.nuget\packages\node.js\0.10.28</PkgNode_js>
+    <PkgNoGit Condition=" '$(PkgNoGit)' == '' ">C:\Users\HP\.nuget\packages\nogit\0.0.8</PkgNoGit>
+    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\HP\.nuget\packages\microsoft.codeanalysis.analyzers\2.9.4</PkgMicrosoft_CodeAnalysis_Analyzers>
+    <PkgjQuery Condition=" '$(PkgjQuery)' == '' ">C:\Users\HP\.nuget\packages\jquery\1.8.0</PkgjQuery>
+    <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\HP\.nuget\packages\microsoft.entityframeworkcore.tools\3.1.9</PkgMicrosoft_EntityFrameworkCore_Tools>
+    <PkgBower Condition=" '$(PkgBower)' == '' ">C:\Users\HP\.nuget\packages\bower\1.3.11</PkgBower>
   </PropertyGroup>
 </Project>

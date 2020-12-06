@@ -187,6 +187,9 @@ namespace WebApplication3.Data.Migrations
                         .HasColumnType("TEXT")
                         .HasMaxLength(256);
 
+                    b.Property<bool>("Notifications")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("PasswordHash")
                         .HasColumnType("TEXT");
 

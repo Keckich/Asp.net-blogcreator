@@ -7,7 +7,7 @@
         @await Html.PartialAsync("_PostPartial", Model.Post)
         @if (!Model.Post.Posted)
         {
-            <form method="post" asp-action="Apply" asp-controller="PostManager" asp-route-id="@Model.Post.Id">
+            <form method="post" asp-action="Apply" asp-controller="PostManager" asp-route-id="@Model.Post.Id" asp-route-link=>
                 <div class="input-group">
                     <span class="input-group-btn">
                         <button class="btn btn-success" style="height:40px;width:105px">@Localizer["Apply"]</button>

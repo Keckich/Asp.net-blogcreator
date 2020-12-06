@@ -4,6 +4,8 @@
 @inject UserManager<ApplicationUser> UserManager
 @model WebApplication3.Models.CommentViewModel
 @{
+    var midDel = "myModalDel" + Model.Post.Id;
+    var tmDel = "#myModalDel" + Model.Post.Id;
     var mid = "myModal" + Model.Post.Id;
     var tm = "#myModal" + Model.Post.Id;
 }
@@ -14,19 +16,19 @@
         @if (UserManager.GetUserAsync(User).Result != null && UserManager.GetUserAsync(User).Result.UserName == Model.Post.Author && !User.IsInRole("Admin") && !User.IsInRole("Moderator"))
         {
             <span class="input-group-btn">
-                <button class="btn btn-danger" data-toggle="modal" data-target="@tm">@Localizer["Delete"]</button>
+                <button class="btn btn-danger" data-toggle="modal" data-target="@tmDel">@Localizer["Delete"]</button>
             </span>
 
         }
         @if ((User.IsInRole("Admin") || User.IsInRole("Moderator")) && Model.Post.Posted == true)
         {
             <span class="input-group-btn">
-                <button class="btn btn-danger" data-toggle="modal" data-target="@tm">@Localizer["Delete"]</button>
+                <button class="btn btn-danger" data-toggle="modal" data-target="@tmDel">@Localizer["Delete"]</button>
             </span>
         }
         <form method="post" asp-action="Delete" asp-controller="Home" asp-route-id="@Model.Post.Id" asp-route-author="@Model.Post.Author">
 
-            <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="@midDel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -62,8 +64,6 @@
                 <input type="text" name="CContent">
                 <input type="hidden" name="PostId" value="@Model.Post.Id">
             </p>
-            <div class="form-group">
-
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="@tm">
                     Submit
                 </button>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            
         </form>
     </div>
     <div class="row justify-content-center" id="comments">

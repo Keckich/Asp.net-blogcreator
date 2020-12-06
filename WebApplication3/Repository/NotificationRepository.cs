@@ -25,12 +25,19 @@ namespace WebApplication3.Repository
             var users = db.Users.ToList();
             foreach (var user in users)
             {
-                var userNotification = new NotificationUser();
-                userNotification.UserId = user.Id;
-                userNotification.Text = text;
+                if (user.Notifications)
+                {
+                    var userNotification = new NotificationUser();
+                    userNotification.UserId = user.Id;
+                    userNotification.Text = text;
 
-                db.UserNotifications.Add(userNotification);
-                db.SaveChanges();
+                    db.UserNotifications.Add(userNotification);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    continue;
+                }
             }
             _hubContext.Clients.All.SendAsync("displayNotification", "");
         }

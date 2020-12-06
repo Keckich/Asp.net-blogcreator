@@ -13,6 +13,33 @@ $('[data-toggle="popover"]').popover({
 
 $(function () {
 
+    $('[data-toggle="popover"]').popover();
+
+    $('[data-toggle="popover"]').on('mouseenter', function () {
+        if (!$(this).attr('aria-describedby')) {
+            $(this).popover('show');
+        }
+    });
+
+    $('[data-toggle="popover"]').on('click', function () {
+        if ($(this).attr('aria-describedby')) {
+            $(this).popover('hide');
+        }
+    });
+
+    $(document).on('mouseenter', ':not(.popover)', function (e) {
+        if (e.target.closest('.popover') || $(e.target).attr('data-toggle') === 'popover') {
+            return;
+        }
+        $('[data-toggle="popover"]').each(function () {
+            $(this).popover('hide');
+        })
+    });
+
+});
+
+$(function () {
+
     $('body').append(`<div id="notification-content" class="hide"></div>`)
 
     function getNotification() {
