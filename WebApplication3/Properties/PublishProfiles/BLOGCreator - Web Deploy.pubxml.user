@@ -6,16 +6,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7dcvM27s0USbDZFLzMXlxQAAAAACAAAAAAAQZgAAAAEAACAAAAAbWDKA9yYBNn77o/2Sm8bnQzAx3G/hlhHQJ61/VgBTWQAAAAAOgAAAAAIAACAAAAAqRyrlpNwqRigL2DjQ+E8B9RXLJ9bpXrkODw/ZlF6RQYAAAADIShBxiJxeRE9+uvMEkIqH369seAWufKZodOcCwXcV0P/TIneuO4DhP4qdfRDlr3bkl0lx7dlEjw0bFMHsman/rsNotgKG369RH5QkIJl7sS+dzSAWqFQ+UhE1tIxwPVZLUZm04EmVGcLlBUp/khreIY7TZ/Q7owKdvo1ZdPj/L0AAAACuDtewCsdDg2CWjjS5jST7/nyHF7D8K45nm/BrEXGjXC0hI+zFIgowwb+TX1xw6C3FM3V2z4bAMNiawazxrCdK</EncryptedPassword>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7dcvM27s0USbDZFLzMXlxQAAAAACAAAAAAAQZgAAAAEAACAAAABczB4FXEX6Wfwf8ZgEQtzIL6+/h7l1RjvIQCNfMvwy5gAAAAAOgAAAAAIAACAAAABFWcq2L5aOolV1x2qUPO3c0xp6pNXCzWozT13nDGpLAYAAAAACUIv4fL/U9Iqlg4LUNiZ3GZCgz/NAWZfYGVnMj+wuUrAUVkytIb//nF9I8loQ4YLldLfo0cjAUa3mL19CrBP31rSFIeW82KzsIe3UWwtoJGqbmuI9/QD6uTY0tSnBXgdBmSMTJ636xXYZHp2SAVs+cxNJHdyM68z6SsbiyW95VUAAAAAv4GVZqtpyy+ZL8wK7UqWUFDeXya8QgRZ5JlM4WnugVc8tQIY7y2kCAj746S12FCMztOv0iqh5320Z24YkF/aR</EncryptedPassword>
   </PropertyGroup>
-  <ItemGroup>
-    <DestinationConnectionStrings Include="DefaultConnection">
-      <Value>Data Source=tcp:blogcreatordbserver.database.windows.net,1433%3bInitial Catalog=BLOGCreator_db%3bUser Id=blogdb%40blogcreatordbserver%3bPassword=Pogg123_</Value>
-    </DestinationConnectionStrings>
-  </ItemGroup>
-  <ItemGroup>
-    <EFMigrations Include="WebApplication3.Data.ApplicationDbContext">
-      <Value>DataSource=app.db</Value>
-    </EFMigrations>
-  </ItemGroup>
 </Project>

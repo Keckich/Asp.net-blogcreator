@@ -133,6 +133,7 @@ namespace WebApplication3.Controllers
             return PartialView(postCommentVm);
         }
 
+        [Authorize]
         public IActionResult Like(int commentId, int postId)
         {
             if (ModelState.IsValid)

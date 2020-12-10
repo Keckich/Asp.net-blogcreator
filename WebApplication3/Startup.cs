@@ -6,14 +6,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using WebApplication3.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebApplication3.Models;
-using Microsoft.AspNetCore.Authentication.Google;
+//using Microsoft.AspNetCore.Authentication.Google;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using WebApplication3.Hubs;
@@ -35,34 +35,27 @@ namespace WebApplication3
         public void ConfigureServices(IServiceCollection services)
         {
 
-            /*services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(
-                    Configuration.GetConnectionString("DefaultConnection")));*/
-            string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection, b => b.MigrationsAssembly("WebApplication3")));
-            /*services.AddDbContext<ApplicationDbContext>(options =>
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
             {
-                options.UseMySql("server=localhost;port=3306; database=WebApplication3; user=root; password=Pogg123_",
-                
-                mySqlOptionsAction: MySqlOptions =>
-                {
-                    MySqlOptions.EnableRetryOnFailure(
-                    maxRetryCount: 3,
-                    maxRetryDelay: TimeSpan.FromSeconds(30),
-                    errorNumbersToAdd: null);
-                });
-                options.EnableDetailedErrors();
-                
-            });*/
-                
-            
+                services.AddDbContext<ApplicationDbContext>(options =>
+                        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionProd")));
+            }
+            else
+            {
+                services.AddDbContext<ApplicationDbContext>(options =>
+                        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            }
+                       
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
+                .AddDefaultUI()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.Configure<IdentityOptions>(options =>
             {
                 options.User.RequireUniqueEmail = true;
             });
+            services.AddDistributedMemoryCache();
+            services.AddSession();
             services.AddSignalR();
             services.AddControllersWithViews();
             /*services.AddMvc(options => options.EnableEndpointRouting = false);*/
@@ -81,11 +74,12 @@ namespace WebApplication3
                     new CultureInfo("de")
                 };
 
-                options.DefaultRequestCulture = new RequestCulture("ru");
+                options.DefaultRequestCulture = new RequestCulture("en");
                 options.SupportedCultures = supportedCultures;
                 options.SupportedUICultures = supportedCultures;
 
             });
+
             /*services.AddAuthentication()
                 .AddGoogle(options =>
                 {
@@ -125,7 +119,18 @@ namespace WebApplication3
             });*/
             app.UseAuthentication();
             app.UseAuthorization();
-           
+
+            app.UseSession();
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Cookies.ContainsKey("timezone"))
+                {
+                    context.Session.SetInt32("timezone", int.Parse(context.Request.Cookies["timezone"]));
+                }
+                await next.Invoke();
+            });
+
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<NotificationHub>("/NotificationHub");

@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+//using NETCore.MailKit.Core;
 using WebApplication3.Models;
 
 namespace WebApplication3.Areas.Identity.Pages.Account
@@ -24,17 +25,20 @@ namespace WebApplication3.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        //private IEmailService _emailService;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender
+            )//IEmailService emailService
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+           // _emailService = emailService;
         }
 
         [BindProperty]
@@ -60,7 +64,7 @@ namespace WebApplication3.Areas.Identity.Pages.Account
 
             [Required]
             [EmailAddress]
-            
+
             [Display(Name = "Email")]
             public string Email { get; set; }
 
@@ -82,36 +86,38 @@ namespace WebApplication3.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
+        [Obsolete]
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser 
-                { 
-                    UserName = Input.Username, 
-                    Email = Input.Email, 
-                    FirstName = Input.FirstName, 
-                    LastName = Input.LastName 
+                var user = new ApplicationUser
+                {
+                    UserName = Input.Username,
+                    Email = Input.Email,
+                    FirstName = Input.FirstName,
+                    LastName = Input.LastName
                 };
-                
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
                     await _userManager.AddToRoleAsync(user, Enums.Roles.User.ToString());
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
                         pageHandler: null,
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
+                    //HtmlEncoder.Default.Encode(callbackUrl)
+                    EmailService emailService = new EmailService();
+                    await emailService.SendEmailAsync(user.Email, "Email-Подтверждение", $"Здравствуйте, {user.UserName}! Подтвердите электронную. Так мы сможем" +
+                        $" понять, что вы ввели верную почту, и вы сразу сможете войти в свой аккаунт.\n<a href='{callbackUrl}'>Подвердите электронную почту.</a>");
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
@@ -132,4 +138,5 @@ namespace WebApplication3.Areas.Identity.Pages.Account
             return Page();
         }
     }
+
 }

@@ -25,7 +25,9 @@ namespace WebApplication3
                 try
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
+                    
                     //context.Database.Migrate();
+                    
                     CategoryInitial.Initialize(context);
                     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
                     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
