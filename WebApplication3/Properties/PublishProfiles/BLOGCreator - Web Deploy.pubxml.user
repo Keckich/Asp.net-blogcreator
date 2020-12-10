@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7dcvM27s0USbDZFLzMXlxQAAAAACAAAAAAAQZgAAAAEAACAAAAAbWDKA9yYBNn77o/2Sm8bnQzAx3G/hlhHQJ61/VgBTWQAAAAAOgAAAAAIAACAAAAAqRyrlpNwqRigL2DjQ+E8B9RXLJ9bpXrkODw/ZlF6RQYAAAADIShBxiJxeRE9+uvMEkIqH369seAWufKZodOcCwXcV0P/TIneuO4DhP4qdfRDlr3bkl0lx7dlEjw0bFMHsman/rsNotgKG369RH5QkIJl7sS+dzSAWqFQ+UhE1tIxwPVZLUZm04EmVGcLlBUp/khreIY7TZ/Q7owKdvo1ZdPj/L0AAAACuDtewCsdDg2CWjjS5jST7/nyHF7D8K45nm/BrEXGjXC0hI+zFIgowwb+TX1xw6C3FM3V2z4bAMNiawazxrCdK</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:blogcreatordbserver.database.windows.net,1433%3bInitial Catalog=BLOGCreator_db%3bUser Id=blogdb%40blogcreatordbserver%3bPassword=Pogg123_</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="WebApplication3.Data.ApplicationDbContext">
+      <Value>DataSource=app.db</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

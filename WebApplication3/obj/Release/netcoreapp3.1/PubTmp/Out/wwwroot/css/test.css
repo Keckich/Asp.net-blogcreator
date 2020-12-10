@@ -1,0 +1,17 @@
+body {
+    font-size: 13px;
+    font-family: Verdana, Arial, Helvetica, Sans-Serif, serif;
+    background-color: #f7f7fa;
+    padding-left:40px;
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}

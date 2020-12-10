@@ -18,14 +18,15 @@ using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using WebApplication3.Hubs;
 using WebApplication3.Repository;
+using Microsoft.Extensions.Logging;
 
 namespace WebApplication3
 {
     public class Startup
-    {
+    {        
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = configuration;            
         }
 
         public IConfiguration Configuration { get; }
@@ -33,12 +34,28 @@ namespace WebApplication3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+
+            /*services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            /*services.AddDbContext<PostContext>(options =>
-                options.UseSqlite(
-                    Configuration.GetConnectionString("PostContext")));*/
+                    Configuration.GetConnectionString("DefaultConnection")));*/
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection, b => b.MigrationsAssembly("WebApplication3")));
+            /*services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseMySql("server=localhost;port=3306; database=WebApplication3; user=root; password=Pogg123_",
+                
+                mySqlOptionsAction: MySqlOptions =>
+                {
+                    MySqlOptions.EnableRetryOnFailure(
+                    maxRetryCount: 3,
+                    maxRetryDelay: TimeSpan.FromSeconds(30),
+                    errorNumbersToAdd: null);
+                });
+                options.EnableDetailedErrors();
+                
+            });*/
+                
+            
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();

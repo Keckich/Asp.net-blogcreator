@@ -1,7 +1,8 @@
 ﻿@*@model IEnumerable<WebApplication3.Models.Post>*@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
-@model WebApplication3.Models.CategoryViewModel
+@model WebApplication3.Models.IndexViewModel
+@addTagHelper *, WebApplication3
 @{
     ViewData["Title"] = @Localizer["HomePage"];
 
@@ -22,11 +23,11 @@
                     <input type="submit" value="Search">
                 </p>
             </form>
-
             @await Component.InvokeAsync("LastPosts", new { howMany = 2 })
         </div>
     </div>
 </div>
+<page-link page-view-model="Model.PageViewModel" page-action="Index"></page-link>
 <script src="~/js/notification.js"></script>
 <script src="~/js/signalr/jquery.signalR.min.js"></script>
 <script src="~/lib/signalr.js/jquery.signalR.js"></script>

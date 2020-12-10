@@ -28,27 +28,33 @@ namespace WebApplication3.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index(string searchString, string postCategory)
+        public async Task<IActionResult> Index(string searchString, string postCategory, int page=1)
         {
+            int pageSize = 5;
             var posts = from p in db.Posts select p;
-            IQueryable<string> categoryQuery = from p in db.Categories orderby p.Title select p.Title;   
+            IQueryable<string> categoryQuery = from p in db.Categories orderby p.Title select p.Title;
+
             if (!String.IsNullOrEmpty(searchString))
             {
                 posts = posts.Where(s => s.Title.Contains(searchString));
-            }
-            
+            }            
             if (!String.IsNullOrEmpty(postCategory))
             {
                 posts = posts.Where(p => p.Category.Title == postCategory);
             }
+            var count = await posts.CountAsync();
+            var items = await posts.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
 
-            var postCategoryVm = new CategoryViewModel
+            PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
+            var postVm = new IndexViewModel
             {
+                PageViewModel = pageViewModel,
                 Categories = new SelectList(await categoryQuery.Distinct().ToListAsync()),                
-                Posts = await posts.ToListAsync()
+                Posts = items
             };
-            return View(postCategoryVm);
+            return View(postVm);
         }
+
         [HttpGet]
         public IActionResult Details(int id)
         {

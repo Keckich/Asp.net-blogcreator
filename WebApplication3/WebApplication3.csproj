@@ -3,11 +3,23 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <UserSecretsId>aspnet-WebApplication3-D928532D-8FB7-4F3F-B31F-09A7B4AC3E06</UserSecretsId>
+        <StartupObject></StartupObject>
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Remove="Data\Migrations\20201113020019_AllInOneContext.cs" />
-      <Compile Remove="Data\Migrations\20201113020019_AllInOneContext.Designer.cs" />
+      <Compile Remove="Migrations\**" />
+      <Content Remove="Migrations\**" />
+      <EmbeddedResource Remove="Migrations\**" />
+      <None Remove="Migrations\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Data\Migrations\20201208075815_ChangeFKCommentsPost.cs" />
+      <Compile Remove="Data\Migrations\20201208075815_ChangeFKCommentsPost.Designer.cs" />
+      <Compile Remove="Data\Migrations\20201208090931_Initial.cs" />
+      <Compile Remove="Data\Migrations\20201208090931_Initial.Designer.cs" />
+      <Compile Remove="Data\Migrations\20201208093020_Initial.cs" />
+      <Compile Remove="Data\Migrations\20201208093020_Initial.Designer.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -209,25 +221,28 @@
         <PackageReference Include="ckeditor-basic" Version="4.15.0" />
         <PackageReference Include="jQuery.Ajax.Unobtrusive" Version="2.0.20710" />
         <PackageReference Include="Localization.AspNetCore.TagHelpers" Version="0.6.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.9" />
-        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.9" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.9" />
+        <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.10" />
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.10" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.2.5" />
         <PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
+        <PackageReference Include="Microsoft.Azure.SignalR" Version="1.4.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.10">
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.6" />
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
     </ItemGroup>
 
 </Project>
