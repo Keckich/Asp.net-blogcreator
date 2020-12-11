@@ -66,7 +66,7 @@ namespace WebApplication3.Controllers
                     + @Url.RouteUrl(new { controller = "Home", action = "Details", id = id })
                     + $"'>{post.Title}</a>";
                 string text = $"New article in category {db.Categories.Find(post.CategoryId).Title} has been already posted: {url}";
-                _notificationRepository.Create(text);
+                _notificationRepository.Create(text, url);
                 db.SaveChanges();
             }
 

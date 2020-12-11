@@ -50,14 +50,14 @@ namespace WebApplication3.Areas.Identity.Pages.Account
                 // For more information on how to enable account confirmation and password reset please 
                 // visit https://go.microsoft.com/fwlink/?LinkID=532713
                 var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-                //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                 var callbackUrl = Url.Page(
                     "/Account/ResetPassword",
                     pageHandler: null,
                     values: new { area = "Identity", code },
                     protocol: Request.Scheme);
                 EmailService emailService = new EmailService();
-                await emailService.SendEmailAsync(user.Email, "Смена пароля", $"Здравствуйте, {user.UserName}! Пожалуйста, используйте" +
+                await emailService.SendEmailAsync(Input.Email, "Смена пароля", $"Здравствуйте, {user.UserName}! Пожалуйста, используйте " +
                     $"<a href='{callbackUrl}'>ссылку</a>, для смены пароля. Если это не ВЫ хотите сменить пароль - проигнорируйте это сообщение.");
                 /*await _emailSender.SendEmailAsync(
                     Input.Email,

@@ -117,10 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Close" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Kommentare</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Beitrag löschen</value>
+  </data>
+  <data name="DeleteConf" xml:space="preserve">
+    <value>Bestätigung löschen</value>
+  </data>
+  <data name="Question" xml:space="preserve">
+    <value>Sind Sie sicher, löschen Sie diesen Artikel?</value>
+  </data>
+  <data name="Question2" xml:space="preserve">
+    <value>Sind Sie sicher, diesen Kommentar zu posten? Bevor es auf der Seite angezeigt wird, wird es von der Verwaltung überprüft, dies kann bis zu zwei Tage dauern.</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Abgeben</value>
+  </data>
+  <data name="SubmitConf" xml:space="preserve">
+    <value>Kommentar abschicken</value>
   </data>
 </root>

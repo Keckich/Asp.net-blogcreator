@@ -3,33 +3,54 @@
 @inject IViewLocalizer Localizer
 @inject UserManager<ApplicationUser> UserManager
 @model Comment
-<div class="row justify-content-center">
 
-    <div class="col col-7">
-        <b>@Model.CommentAuthor</b>
-        <p>@Model.CContent</p>
-        <p>@Model.PostedOn</p>
-    </div>
-    <div class="col col-1">
-        <div class="input-group">
-            <span class="input-group-btn">
-                <form method="post" asp-action="ApplyComment" asp-controller="PostManager" asp-route-id="@Model.CommentId" asp-route-postId="@Model.PostId"
-                      data-ajax="true" data-ajax-mode="replace" data-ajax-update="#manageComments" enctype="multipart/form-data">
+
+<table class="table">
+    <tbody>
+        <tr>
+            <td>
+                <div class="row justify-content-center">
+                    <div class="col-8">
+                        <b>@Model.CommentAuthor</b>
+                        <p><textarea class="form-control" readonly style="width: 450px">@Model.CContent</textarea></p>
+                        <p>@Model.PostedOn.ConvertTime(Context.Session)</p>
+                        <hr />
+                    </div>
+                </div>
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+                <div class="col col-1">
                     <div class="input-group">
                         <span class="input-group-btn">
-                            <button class="btn btn-success" style="height:40px;width:105px">@Localizer["Apply"]</button>
+                            <form method="post" asp-action="ApplyComment" asp-controller="PostManager" asp-route-id="@Model.CommentId" asp-route-postId="@Model.PostId"
+                                  data-ajax="true" data-ajax-mode="replace" data-ajax-update="#manageComments" enctype="multipart/form-data">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success" style="height:40px;width:105px">@Localizer["Apply"]</button>
+                                    </span>
+                                </div>
+                            </form>
+                            <form method="post" asp-action="RemoveComment" asp-controller="PostManager" asp-route-id="@Model.CommentId" asp-route-postId="@Model.PostId"
+                                  data-ajax="true" data-ajax-mode="replace" data-ajax-update="#manageComments" enctype="multipart/form-data">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-danger" style="height:40px;width:105px">@Localizer["Decline"]</button>
+                                    </span>
+                                </div>
+                            </form>
                         </span>
                     </div>
-                </form>
-                <form method="post" asp-action="RemoveComment" asp-controller="PostManager" asp-route-id="@Model.CommentId" asp-route-postId="@Model.PostId"
-                      data-ajax="true" data-ajax-mode="replace" data-ajax-update="#manageComments" enctype="multipart/form-data">
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <button class="btn btn-danger" style="height:40px;width:105px">@Localizer["Decline"]</button>
-                        </span>
-                    </div>
-                </form>
-            </span>
-        </div>
-    </div>
-</div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+

@@ -1,7 +1,7 @@
 @model IEnumerable<WebApplication3.Models.Post>
-
+@inject IViewLocalizer Localizer
 <div>
-    <h4>Last articles:</h4>
+    <h4>@Localizer["LastPosts"]:</h4>
     <ul>
         @foreach (var post in Model)
         {

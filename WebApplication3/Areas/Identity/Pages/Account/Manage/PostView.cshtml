@@ -1,8 +1,10 @@
 ﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @model WebApplication3.Areas.Identity.Pages.Account.Manage.PostViewModel
 @inject WebApplication3.Data.ApplicationDbContext context
 @{
-    ViewData["Title"] = "Your posts";
+    ViewData["Title"] = Localizer["Your"];
     ViewData["ActivePage"] = ManageNavPages.UserPosts;
 }
 
@@ -12,9 +14,9 @@
 
 <h4>@ViewData["Title"]</h4>
 <form method="post">
-    <label>Do you want to get notifications about new posts?</label>
-    <input type="checkbox" name="Notifications" checked="@Model.Post.User.Notifications"/>
-    <button asp-route-check="@Model.Post.User.Notifications" asp-page-handler="notificate">update</button>
+    <label>@Localizer["Notif"]</label>
+    <input type="checkbox" name="Notifications" checked="@Model.Post.User.Notifications" />
+    <button asp-route-check="@Model.Post.User.Notifications" asp-page-handler="notificate">@Localizer["Update"]</button>
 </form>
 
 
@@ -23,12 +25,12 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Author</th>
-            <th>Title</th>
-            <th>Posted on</th>
-            <th>Category</th>
-            <th>Posted</th>
-            <th>Action</th>
+            <th>@Localizer["Author"]</th>
+            <th>@Localizer["Title"]</th>
+            <th>@Localizer["PostedOn"]</th>
+            <th>@Localizer["Category"]</th>
+            <th>@Localizer["Posted"]</th>
+            <th>@Localizer["Action"]</th>
         </tr>
     </thead>
     <tbody>
@@ -44,7 +46,7 @@
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PostedOn)
+                    @Html.DisplayFor(modelItem => item.PostedOn.ToString("dd MMM yyyy"))
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => context.Categories.Find(item.CategoryId).Title)
@@ -54,31 +56,31 @@
                 </td>
                 <td>
                     <form method="get">
-                        <a class="btn btn-info" asp-page="PostDetails" asp-route-id="@item.Id">Details</a> |
+                        <a class="btn btn-info" asp-page="PostDetails" asp-route-id="@item.Id">@Localizer["Details"]</a> |
                     </form>
                     <form method="post">
-                        <a class="btn btn-success" asp-page="PostEdit" asp-route-id="@item.Id">Edit</a> |
+                        <a class="btn btn-success" asp-page="PostEdit" asp-route-id="@item.Id">@Localizer["Edit"]</a> |
                     </form>
                     <form method="post">
 
                         @*<button id="btnDelete" class="btn btn-danger" data-toggle="modal" asp-page-handler="delete" asp-route-id="@item.Id">Delete</button>*@
 
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="@tm">
-                            Delete
+                            @Localizer["Delete"]
                         </button>
                         <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                                        <h4 class="modal-title" id="myModalLabel">@Localizer["DeleteConf"]</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                     </div>
                                     <div class="modal-body">
-                                        Are you sure want to delete this item?
+                                        @Localizer["Question"]
                                     </div>
                                     <div class="modal-footer">
-                                        <button asp-page-handler="delete" asp-route-id="@item.Id" id="btnDelete" class="btn bg-danger">Delete</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button asp-page-handler="delete" asp-route-id="@item.Id" id="btnDelete" class="btn bg-danger">@Localizer["Delete"]</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">@Localizer["Close"]</button>
                                     </div>
                                 </div>
                             </div>

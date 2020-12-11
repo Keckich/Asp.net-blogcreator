@@ -8,6 +8,7 @@ namespace WebApplication3.Hubs
 {
     public class NotificationHub : Hub
     {
+        
 
     }
 }

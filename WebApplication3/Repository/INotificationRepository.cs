@@ -9,7 +9,7 @@ namespace WebApplication3.Repository
     public interface INotificationRepository
     {
         List<NotificationUser> GetUserNotifications(string userId);
-        void Create(string text);
+        Task Create(string text, string url);
         void ReadNotification(int notificationId, string userId);
     }
 }

@@ -12,7 +12,7 @@ namespace WebApplication3.Areas.Identity.Pages.Account.Manage
 
         public static string Email => "Email";
 
-        public static string UserPosts => "User posts";
+        public static string UserPosts => "UserPosts";
 
         public static string ChangePassword => "ChangePassword";
 

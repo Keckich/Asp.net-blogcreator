@@ -27,20 +27,19 @@
             </span>
         }
         <form method="post" asp-action="Delete" asp-controller="Home" asp-route-id="@Model.Post.Id" asp-route-author="@Model.Post.Author">
-
             <div class="modal fade" id="@midDel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                            <h4 class="modal-title" id="myModalLabel">@Localizer["DeleteConf"]</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">
-                            Are you sure want to delete this item?
+                            @Localizer["Question"]
                         </div>
                         <div class="modal-footer">
-                            <button class="btn bg-danger">Delete</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button class="btn bg-danger">@Localizer["Delete"]</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">@Localizer["Close"]</button>
                         </div>
                     </div>
                 </div>
@@ -57,35 +56,36 @@
 </div>
 
 <h2>@Localizer["Comments"]</h2>
-<div class="col-md-4">
-    <div class="col-md-4">
+<div class="row justify-content-center">
+    <div class="col-8">
         <form asp-action="Details" asp-controller="Home" method="post">
-            <p>
-                <input type="text" name="CContent">
+            <div class="form-group">
+                @*<input type="text" name="CContent">*@
                 <input type="hidden" name="PostId" value="@Model.Post.Id">
-            </p>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="@tm">
-                    Submit
-                </button>
-                <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">Submit Comment Confirmation</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                Are you sure to post this comment? Before it appears on the page it will be validate by administration,
-                                this may take up two days.
-                            </div>
-                            <div class="modal-footer">
-                                <input type="submit" class="btn btn-success" value="Submit">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
+                <textarea name="CContent" class="form-control"></textarea>
+                <span name="CContent" class="text-danger"></span>
+            </div>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="@tm">
+                @Localizer["Submit"]
+            </button>
+            <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">@Localizer["SubmitConf"]</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            @Localizer["Question2"]
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-success" value="@Localizer["Submit"]">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">@Localizer["Close"]</button>
                         </div>
                     </div>
                 </div>
-            
+            </div>
+
         </form>
     </div>
     <div class="row justify-content-center" id="comments">

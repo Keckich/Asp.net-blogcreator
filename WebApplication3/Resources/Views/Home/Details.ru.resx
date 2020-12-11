@@ -117,10 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Close" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Комментарии</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Удалить пост</value>
+  </data>
+  <data name="DeleteConf" xml:space="preserve">
+    <value>Подтверждение удаления</value>
+  </data>
+  <data name="Question" xml:space="preserve">
+    <value>Вы точно хотите это удалить?</value>
+  </data>
+  <data name="Question2" xml:space="preserve">
+    <value>Вы уверены, что хотите отправить данный комментарий? Прежде, чем он появится на сайте, его проверит наша администрация. Это может занять до двух дней.</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Написать</value>
+  </data>
+  <data name="SubmitConf" xml:space="preserve">
+    <value>Подтверждение отправки</value>
   </data>
 </root>

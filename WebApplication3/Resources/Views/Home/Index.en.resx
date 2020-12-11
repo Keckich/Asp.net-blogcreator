@@ -123,4 +123,7 @@
   <data name="HomePage" xml:space="preserve">
     <value>HomePage</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
 </root>

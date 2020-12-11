@@ -1,7 +1,9 @@
 ﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @model IndexModel
 @{
-    ViewData["Title"] = "Profile";
+    ViewData["Title"] = Localizer["Profile"];
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
@@ -16,40 +18,41 @@
                 <input asp-for="Username" class="form-control" disabled />
             </div>
             <div class="form-group">
-                <label asp-for="Input.FirstName"></label>
+                <label asp-for="Input.FirstName">@Localizer["Name"]</label>
                 <input asp-for="Input.FirstName" class="form-control" />
                 <span asp-validation-for="Input.FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.LastName"></label>
+                <label asp-for="Input.LastName">@Localizer["Surname"]</label>
                 <input asp-for="Input.LastName" class="form-control" />
                 <span asp-validation-for="Input.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.PhoneNumber"></label>
+                <label asp-for="Input.PhoneNumber">@Localizer["Phone"]</label>
                 <input asp-for="Input.PhoneNumber" class="form-control" />
                 <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
             </div>
-            <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
+            <button id="update-profile-button" type="submit" class="btn btn-primary">@Localizer["Save"]</button>
         </div>
         <div class="col-md-6">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Input.ProfilePicture" style="width: 100%;"></label>
+                <label asp-for="Input.ProfilePicture" style="width: 100%;">@Localizer["Pict"]</label>
                 @if (Model.Input.ProfilePicture != null)
                 {
                     <img id="profilePicture" style="width:350px; height:350px; object-fit:cover" src="data:image/*;base64,@(Convert.ToBase64String(Model.Input.ProfilePicture))">
                 }
-                else { 
+                else
+                {
                     <img id="profilePicture" style="width: 350px; height: 350px; object-fit: cover" src="">
                 }
                 <input type="file"
-                       accept=".png,.jpg,.jpeg" 
+                       accept=".png,.jpg,.jpeg"
                        asp-for="Input.ProfilePicture"
                        class="form-control"
                        style="border:0px!important; padding:0px; padding-top:10px; padding-bottom:30px;"
-                       onchange="document.getElementById('profilePicture').src = window.URL.createObjectURL(this.files[0])"/>
-                <span asp-validation-for="Input.ProfilePicture" class="text-danger"></span>                       
+                       onchange="document.getElementById('profilePicture').src = window.URL.createObjectURL(this.files[0])" />
+                <span asp-validation-for="Input.ProfilePicture" class="text-danger"></span>
             </div>
         </div>
     </div>

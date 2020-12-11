@@ -8,6 +8,9 @@ using WebApplication3.Data;
 using WebApplication3.Hubs;
 using WebApplication3.Models;
 
+using Microsoft.AspNetCore.Mvc;
+
+
 namespace WebApplication3.Repository
 {
     public class NotificationRepository : INotificationRepository
@@ -20,7 +23,7 @@ namespace WebApplication3.Repository
             _hubContext = hubContext;
         }
 
-        public void Create(string text)
+        public async Task Create(string text, string url)
         {
             var users = db.Users.ToList();
             foreach (var user in users)
@@ -30,7 +33,7 @@ namespace WebApplication3.Repository
                     var userNotification = new NotificationUser();
                     userNotification.UserId = user.Id;
                     userNotification.Text = text;
-
+                    
                     db.UserNotifications.Add(userNotification);
                     db.SaveChanges();
                 }
@@ -39,7 +42,21 @@ namespace WebApplication3.Repository
                     continue;
                 }
             }
-            _hubContext.Clients.All.SendAsync("displayNotification", "");
+            
+            await _hubContext.Clients.All.SendAsync("displayNotification", "");
+            foreach (var user in users)
+            {
+                if (user.Notifications)
+                {
+                    EmailService emailService = new EmailService();
+                    await emailService.SendEmailAsync(user.Email, "Новый пост", $"Здравствуйте, {user.UserName}! У нас вышел новый пост! " +
+                        $"Для просмотра перейдите по ссылке: {url}.");
+                }
+                else
+                {
+                    continue;
+                }
+            }
         }
 
         public List<NotificationUser> GetUserNotifications(string userId)

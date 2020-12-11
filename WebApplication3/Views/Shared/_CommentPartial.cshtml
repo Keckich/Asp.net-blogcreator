@@ -7,27 +7,35 @@
 }
 
 
-<div class="row justify-content-center">
-
-    <div class="col col-7">
-        <b>@Model.CommentAuthor</b>
-        <p>@Model.CContent</p>
-        <p>@Model.PostedOn.ConvertTime(Context.Session)</p>
-    </div>
-    <div class="col col-1">
-        @if ((User.IsInRole("Admin") || User.IsInRole("Moderator")) && Model.CommentPosted == true)
-        {
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <b>@Model.CommentAuthor</b>
+            <p><textarea class="form-control" readonly style="width: 450px">@Model.CContent</textarea></p>
+            <p>@Model.PostedOn.ConvertTime(Context.Session)</p>
+            <p>
+                <form method="post" asp-action="Like" asp-controller="Home" asp-route-CommentId="@Model.CommentId" asp-route-postId="@Model.PostId"
+                      data-ajax="true" data-ajax-mode="replace" data-ajax-update="#comments" enctype="multipart/form-data">
+                    @*<button class="btn btn-info">Like @Model.LikesCount</button>*@
+                    <div class='like'>
+                        @Model.LikesCount
+                        <button class='like-toggle basic2'>♥</button>
+                    </div>
+                </form>
+            </p>
+            <hr />
+        </div>
+        <div class="col col-1">
+            @if ((User.IsInRole("Admin") || User.IsInRole("Moderator")) && Model.CommentPosted == true)
+            {
             <form method="post" asp-action="DeleteComment" asp-controller="Home" asp-route-id="@Model.CommentId" asp-route-postId="@Model.PostId"
                   data-ajax="true" data-ajax-mode="replace" data-ajax-update="#comments" enctype="multipart/form-data">
-                <div class="input-group">
-                    <span class="input-group-btn">                          
-                        <button class="close" data-toggle="modal" data-target="@tm" aria-hidden="true">&times;</button>                        
-                    </span>
-                </div>
+                <button class="close" data-toggle="modal" data-target="@tm" aria-hidden="true">&times;</button>
+
             </form>
-        }
-        @if (UserManager.GetUserAsync(User).Result != null && UserManager.GetUserAsync(User).Result.UserName == Model.CommentAuthor && !User.IsInRole("Admin") && !User.IsInRole("Moderator"))
-        {
+            }
+            @if (UserManager.GetUserAsync(User).Result != null && UserManager.GetUserAsync(User).Result.UserName == Model.CommentAuthor && !User.IsInRole("Admin") && !User.IsInRole("Moderator"))
+            {
             <button class="close" data-toggle="modal" data-target="@tm" aria-hidden="true">&times;</button>
             <form method="post" asp-action="DeleteCommentUser" asp-controller="Home" asp-route-id="@Model.CommentId" asp-route-postId="@Model.PostId">
                 <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -50,16 +58,7 @@
                     </div>
                 </div>
             </form>
-        }
-        <p>
-            <form method="post" asp-action="Like" asp-controller="Home" asp-route-CommentId="@Model.CommentId" asp-route-postId="@Model.PostId"
-                  data-ajax="true" data-ajax-mode="replace" data-ajax-update="#comments" enctype="multipart/form-data">
-                @*<button class="btn btn-info">Like @Model.LikesCount</button>*@
-                <div class='like'>
-                    @Model.LikesCount
-                    <button class='like-toggle basic2'>♥</button>
-                </div>
-            </form>
-        </p>
+            }
+        </div>
     </div>
 </div>

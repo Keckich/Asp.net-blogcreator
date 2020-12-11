@@ -13,9 +13,9 @@
         .ToList();
 }
 
-<form asp-controller="Home" asp-action="SetLanguage" style="margin-top:20px;"
+<form asp-controller="Home" asp-action="SetLanguage" style="display: inline;margin-left: 10px;"
       asp-route-returnUrl="@Context.Request.Path"
-      method="post" class="form-horizontal">
+      method="post" >
       <select name="culture" onchange="this.form.submit();"
                       asp-for="@requestCulture.RequestCulture.UICulture.Name"
                       asp-items="cultureItems"></select>
