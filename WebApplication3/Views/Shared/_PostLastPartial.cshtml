@@ -9,7 +9,7 @@
         }
     </p>
     <p>@Model.Author</p>
-    <p>@Model.PostedOn.ToString("dd MMM yyyy")</p>
+    <p>@Model.PostedOn.ConvertTime(Context)</p>
     <h4>
         <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Id">
             @Model.Title

@@ -34,8 +34,8 @@ namespace WebApplication3.Data
                 {
                     await userManager.CreateAsync(defaultUser, "Pog123_");
                     await userManager.AddToRoleAsync(defaultUser, Enums.Roles.Admin.ToString());
-                    await userManager.AddToRoleAsync(defaultUser, Enums.Roles.Moderator.ToString());
-                    await userManager.AddToRoleAsync(defaultUser, Enums.Roles.User.ToString());
+                    /*await userManager.AddToRoleAsync(defaultUser, Enums.Roles.Moderator.ToString());
+                    await userManager.AddToRoleAsync(defaultUser, Enums.Roles.User.ToString());*/
                 }
             }
 

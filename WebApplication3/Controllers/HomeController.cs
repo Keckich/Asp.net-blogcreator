@@ -58,6 +58,10 @@ namespace WebApplication3.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
+            if (!db.Posts.Contains(db.Posts.Find(id)))
+            {
+                return RedirectToAction("DeletedPost");
+            }
             var postCommentVm = new CommentViewModel
             {
                 Post = db.Posts.Find(id),
@@ -66,6 +70,11 @@ namespace WebApplication3.Controllers
             };
             
             return View(postCommentVm);
+        }
+
+        public IActionResult DeletedPost()
+        {
+            return View();
         }
 
         [HttpPost]

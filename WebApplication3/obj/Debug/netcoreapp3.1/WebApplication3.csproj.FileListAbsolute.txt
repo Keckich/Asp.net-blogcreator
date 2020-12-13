@@ -1034,3 +1034,4 @@ C:\Users\HP\source\repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\n
 C:\Users\HP\source\repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.g.cs
 C:\Users\HP\source\repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\DownloadPersonalData.cshtml.g.cs
 C:\Users\HP\source\repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_Layout.cshtml.g.cs
+C:\Users\HP\source\repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Views\Home\DeletedPost.cshtml.g.cs

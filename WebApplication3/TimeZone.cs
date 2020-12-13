@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace WebApplication3
 {
-    public static class SessionExtensions
+    public static class TimeZone
     {
-        public static string ConvertTime(this DateTime dataTime, ISession session)
-        {
-            var time = session.GetInt32("timezone");
+        public static string ConvertTime(this DateTime dataTime, HttpContext context)
+        {           
+            var time = context.Request.Cookies["timezone"];
             if (time != null)
             {
                 var timeOffSet = int.Parse(time.ToString());

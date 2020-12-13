@@ -119,18 +119,7 @@ namespace WebApplication3
             });*/
             app.UseAuthentication();
             app.UseAuthorization();
-
-            app.UseSession();
-            app.Use(async (context, next) =>
-            {
-                if (context.Request.Cookies.ContainsKey("timezone"))
-                {
-                    context.Session.SetInt32("timezone", int.Parse(context.Request.Cookies["timezone"]));
-                }
-                await next.Invoke();
-            });
-
-
+  
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<NotificationHub>("/NotificationHub");

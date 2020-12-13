@@ -1,5 +1,6 @@
 ﻿@page
 @using Microsoft.AspNetCore.Mvc.Localization
+@using WebApplication3 
 @inject IViewLocalizer Localizer
 @model WebApplication3.Areas.Identity.Pages.Account.Manage.PostViewModel
 @inject WebApplication3.Data.ApplicationDbContext context
@@ -46,7 +47,8 @@
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PostedOn.ToString("dd MMM yyyy"))
+                   @* @Html.DisplayFor(modelItem => item.PostedOn.ConvertTime(HttpContext))*@
+                    @item.PostedOn.ConvertTime(HttpContext)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => context.Categories.Find(item.CategoryId).Title)

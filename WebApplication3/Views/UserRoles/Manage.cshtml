@@ -1,5 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Identity
 @inject IViewLocalizer Localizer
+@inject UserManager<ApplicationUser> UserManager
 @model List<WebApplication3.Models.ManageUserRolesViewModel>
 @{
     ViewData["Title"] = Localizer["Title"];
@@ -14,14 +16,25 @@
         <div class="card-body">
             @for (int i = 0; i < Model.Count; i++)
             {
-                <div class="form-check m-1">
-                    <input type="hidden" asp-for="@Model[i].RoleId" />
-                    <input type="hidden" asp-for="@Model[i].RoleName" />
+            <div class="form-check m-1">
+                <input type="hidden" asp-for="@Model[i].RoleId" />
+                <input type="hidden" asp-for="@Model[i].RoleName" />
+                @if (await UserManager.IsInRoleAsync(Model[i].User, Model[i].RoleName))
+                {
+                    Model[i].Selected = true;
+                }
+                @if (Model[i].RoleName.Equals("Admin") || Model[i].RoleName.Equals("User"))
+                {
+                    <input asp-for="@Model[i].Selected" class="form-check-input" disabled />
+                }
+                else
+                {
                     <input asp-for="@Model[i].Selected" class="form-check-input" />
-                    <label class="form-check-label" asp-for="@Model[i].Selected">
-                        @Model[i].RoleName
-                    </label>
-                </div>
+                }
+                <label class="form-check-label" asp-for="@Model[i].Selected">
+                    @Model[i].RoleName
+                </label>
+            </div>
             }
             <div asp-validation-summary="All" class="text-danger"></div>
         </div>

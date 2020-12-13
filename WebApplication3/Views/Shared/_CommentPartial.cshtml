@@ -12,7 +12,7 @@
         <div class="col-8">
             <b>@Model.CommentAuthor</b>
             <p><textarea class="form-control" readonly style="width: 450px">@Model.CContent</textarea></p>
-            <p>@Model.PostedOn.ConvertTime(Context.Session)</p>
+            <p>@Model.PostedOn.ConvertTime(Context)</p>
             <p>
                 <form method="post" asp-action="Like" asp-controller="Home" asp-route-CommentId="@Model.CommentId" asp-route-postId="@Model.PostId"
                       data-ajax="true" data-ajax-mode="replace" data-ajax-update="#comments" enctype="multipart/form-data">

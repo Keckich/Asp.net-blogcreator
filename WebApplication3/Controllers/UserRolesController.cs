@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using WebApplication3.Data;
 using WebApplication3.Models;
 
 namespace WebApplication3.Controllers
@@ -13,11 +15,14 @@ namespace WebApplication3.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ILogger<UserRolesController> _logger;
+        private ApplicationDbContext db;
 
-        public UserRolesController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public UserRolesController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ILogger<UserRolesController> logger)
         {
             _userManager = userManager;
             _roleManager = roleManager;
+            _logger = logger;
         }
 
         public async Task<IActionResult> Index()
@@ -46,6 +51,7 @@ namespace WebApplication3.Controllers
         public async Task<IActionResult> Manage(string userId)
         {
             ViewBag.userId = userId;
+
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
@@ -53,22 +59,15 @@ namespace WebApplication3.Controllers
                 return View("NotFound");
             }
             ViewBag.UserName = user.UserName;
-            var model = new List<ManageUserRolesViewModel>();
+            var model = new List<ManageUserRolesViewModel>();   
             foreach (var role in _roleManager.Roles)
             {
                 var userRolesViewModel = new ManageUserRolesViewModel
                 {
                     RoleId = role.Id,
-                    RoleName = role.Name
-                };
-                if (await _userManager.IsInRoleAsync(user, role.Name))
-                {
-                    userRolesViewModel.Selected = true;
-                }
-                else
-                {
-                    userRolesViewModel.Selected = false;
-                }
+                    RoleName = role.Name,
+                    User = user
+                };                
                 model.Add(userRolesViewModel);
             }
             return View(model);
@@ -83,7 +82,7 @@ namespace WebApplication3.Controllers
                 return View();
             }
             var roles = await _userManager.GetRolesAsync(user);
-            var result = await _userManager.RemoveFromRolesAsync(user, roles);
+            var result = await _userManager.RemoveFromRolesAsync(user, roles.Where(x => x.ToString() != "User" && x.ToString() != "Admin"));
             if (!result.Succeeded)
             {
                 ModelState.AddModelError("", "Cannot remove user existing roles");

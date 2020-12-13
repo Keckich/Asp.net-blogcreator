@@ -551,3 +551,4 @@ C:\Users\HP\source\repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Release
 C:\Users\HP\source\repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Release\netcoreapp3.1\WebApplication3.Resources.Areas.Identity.Pages.Account.Manage._Layout.de.resources
 C:\Users\HP\source\repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Release\netcoreapp3.1\WebApplication3.Resources.Areas.Identity.Pages.Account.Manage._Layout.en.resources
 C:\Users\HP\source\repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Release\netcoreapp3.1\WebApplication3.Resources.Areas.Identity.Pages.Account.Manage._Layout.ru.resources
+C:\Users\HP\source\repos\Keckich\Asp.net-blogcreator\WebApplication3\obj\Release\netcoreapp3.1\Razor\Views\Home\DeletedPost.cshtml.g.cs

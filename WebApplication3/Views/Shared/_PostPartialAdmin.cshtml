@@ -12,7 +12,7 @@
                 }
             </p>
             <p>@Model.Item1.Author</p>
-            <p>@Model.Item1.PostedOn.ToString("dd MMM yyyy")</p>
+            <p>@Model.Item1.PostedOn.ConvertTime(Context)</p>
         </div>
         <hr />
     </div>
